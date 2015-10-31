@@ -1,0 +1,12 @@
+
+MANDY LOG MESSAGES: 
+
+Sat Oct 31 09:35:10 CDT 2015
+Listed all functions in MANDY, entry "help".
+Commands Executed: echo
+
+
+Sat Oct 31 09:35:18 CDT 2015
+Removed sudo users via MANDY, entry "editsudoremove".
+Commands Executed: sudo deluser OPTION_VAR sudo
+
