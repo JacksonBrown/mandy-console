@@ -8,12 +8,27 @@ YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
 show_users(){
-	printf "${YELLOW}Listing users in system${NC}: \n"
+	printf "${YELLOW}Listing users in system with BASH shell${NC}: \n"
 	echo
 	if (printf "${RED}`cat /etc/passwd | grep -e "bash"`${NC} \n"); then
 		echo "OK."
 	fi
 	echo
+
+        printf "${YELLOW}Listing users in system with KORN shell${NC}: \n"
+        echo
+        if (printf "${RED}`cat /etc/passwd | grep -e "ksh"`${NC} \n"); then
+                echo "OK."
+        fi
+        echo
+
+        printf "${YELLOW}Listing users in system with C shell${NC}: \n"
+        echo
+        if (printf "${RED}`cat /etc/passwd | grep -e "csh"`${NC} \n"); then
+                echo "OK."
+        fi
+        echo
+
 
 	echo >> logs/log.txt
 	echo "`date`" >> logs/log.txt

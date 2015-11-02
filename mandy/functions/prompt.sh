@@ -15,8 +15,7 @@ prompt(){
 	echo "Welcome to the Mandy console "
 	echo "type \"help\" for options."
 	echo
-	echo "Made by Jackson Brown, Blake Holloway"
-	printf "${CYAN}Last update: `date`${NC} \n"
+	printf "${CYAN}Current version 0.5${NC} \n"
 	echo
 	echo "COLOR CODING: "
 	printf "${GREEN}Green${NC}: Command input \n"

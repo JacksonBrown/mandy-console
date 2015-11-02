@@ -24,7 +24,12 @@ update_sys(){
 				printf "${NC} \n";
 		fi
 	else
-		printf "${YELLOW}Option other than \"y\" specified, update cancelled.${NC}"
+		printf "${YELLOW}Option other than \"y\" specified, update cancelled${NC}. \n"
+	fi
+
+	printf "${YELLOW}Opening update manager${NC}. \n"
+	if (update-manager); then
+		echo "OK."
 	fi
 
 	##LOG UPDATER
