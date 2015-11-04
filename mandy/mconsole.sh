@@ -93,6 +93,10 @@ source functions/show_process.sh
 ## IMPORT SHOW SERVICES RUNNING
 source functions/show_services.sh
 
+## IMPORT CHECKLIST SHOW
+source functions/show_checklist.sh
+
+
 # SETTING NECESSARY ALIASES
 #alias cdm="cd"
 #shopt -s expand_aliases
@@ -206,6 +210,9 @@ run_case(){
 			show_services
 			;;
 
+		"checklist")
+			show_checklist
+			;;
 		*)
 			if [ "$option" == "exit" ]; then
 				echo "Exiting Mandy"
