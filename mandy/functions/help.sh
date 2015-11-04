@@ -35,7 +35,8 @@ help_info(){
 	printf "${CYAN}cron${NC}: view all the cron files in /etc/ \n"
 	printf "${CYAN}editservice${NC}: start, stop, or restart a service \n"
 	printf "${CYAN}process${NC}: show processes on the system \n"
-	printf "${CYAN}services${NC}: show services running on the system \n"
+	printf "${CYAN}services${NC}: show services running on the system \n"	
+	printf "${CYAN}shells${NC}: show shells on the system \n"
 	echo
 
 	## LOG UPDATER

@@ -96,6 +96,8 @@ source functions/show_services.sh
 ## IMPORT CHECKLIST SHOW
 source functions/show_checklist.sh
 
+## IMPORT SHOW SHELLS FUNCTION
+source functions/show_shells.sh
 
 # SETTING NECESSARY ALIASES
 #alias cdm="cd"
@@ -212,6 +214,9 @@ run_case(){
 
 		"checklist")
 			show_checklist
+			;;
+		"shells")
+			show_shells
 			;;
 		*)
 			if [ "$option" == "exit" ]; then
