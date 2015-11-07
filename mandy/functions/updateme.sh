@@ -20,12 +20,11 @@ update_sys(){
 
 		# BEGIN IF TEST DEBIAN
 		if [ $option_fod = "2" ]; then
-			printf "${YELLOW}Running update: \n"
+			printf "${YELLOW}Running update${NC}: \n"
 
-			if (printf "${RED}`sudo apt-get --yes --force-yes update`${NC} \n");
+			if (printf "${RED}`sudo apt-get --yes --force-yes update`${NC} \n"); then
 				echo
 				printf "${YELLOW}Running upgrade: \n"
-				then 
 					printf "${RED}"
 						sudo apt-get --yes --force-yes upgrade
 					printf "${NC} \n";
@@ -35,9 +34,9 @@ update_sys(){
 
 		# BEGIN IF TEST FEDORA
 		elif [ $option_fod = "1" ]; then	
-			printf "${YELLOW}Running update: \n"
+			printf "${YELLOW}Running update${NC}: \n"
 
-			if (printf "${RED}`sudo yum -y update`${NC} \n");
+			if (printf "${RED}`sudo yum -y update`${NC} \n"); then
 				echo
 				printf "${YELLOW}Running update${NC}: \n"
 			fi
