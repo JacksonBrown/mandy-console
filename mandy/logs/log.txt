@@ -1,8 +1,2 @@
 
 MANDY LOG MESSAGES: 
-
-Sat Nov  7 10:15:09 CST 2015
-Updates the system via MANDY, entry "update".
-Commands Executed: sudo apt-get --yes --force-yes update
-Commands Executed: sudo apt-get --yes --force-yes upgrade
-
