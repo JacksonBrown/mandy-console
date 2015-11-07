@@ -258,7 +258,7 @@ add_common_cmd(){
 # FUNCTION CALLING
 
 ## CALL PRINT FUNCTION
-print
+#print
 
 ## CALL SECONDARY PROMPT FUNCTION
 prompt2
