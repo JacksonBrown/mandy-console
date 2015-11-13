@@ -69,4 +69,4 @@ cron: view all the cron files in /etc/
 
 # Full Scan
 
-a scan bash script that runs on an input network. powered my Nmap.
+a scan bash script that runs on an input network. powered my Nmap and other scan services. 
