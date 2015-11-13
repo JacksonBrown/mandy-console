@@ -14,7 +14,6 @@ prompt(){
 	cat logo.txt
 	echo "Powered by Nmap"
 	echo "A script that runs miltiple scan services on a host"
-	echo "v0.0.1"
 	echo "Enter network: "
 	read network
 	echo > scan_out.txt
