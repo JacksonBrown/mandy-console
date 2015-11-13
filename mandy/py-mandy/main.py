@@ -10,7 +10,12 @@ sys.path.insert(0, 'functions/')
 
 ## IMPORT HELP FUNCTION
 from showhelp import *
+
+## IMPORT PROMPT FUNCTION
 from prompt import *
+
+## IMPORT COMMANDTEST FUNCTION
+from commandtest import *
 
 # CLASSES
 
@@ -40,4 +45,5 @@ App.promptCall()
 
 while com_opt != exit:
 	App.promptTwoCall();
+	commandTest();
 	break
