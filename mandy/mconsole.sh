@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# START DIR CHANGE
 # SET MANDY DIRECTORY VARIABLE/CHANGE DIRECTORY TO PARENT PATH
 mandy_dir=$( cd "$(dirname "${BASH_SOURCE}")" ; pwd -P )
 cd "$mandy_dir"

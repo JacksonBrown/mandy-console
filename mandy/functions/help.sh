@@ -8,6 +8,7 @@ YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
 help_info(){
+	## LIST OPT PRO/FUNC
 	echo "List of available options: "
 	echo
 	printf "${CYAN}show${NC}: displays the system info \n"

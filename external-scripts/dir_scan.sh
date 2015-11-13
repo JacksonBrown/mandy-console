@@ -57,8 +57,12 @@ private_scan(){
 	echo
 }
 
-
+## RUN ARR SCAN
 array_scan
+
+## RUN EXEC SCAN
 executable_scan
+
+## RUN HIDDEN SCAN
 private_scan
 
