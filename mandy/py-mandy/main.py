@@ -10,10 +10,8 @@ sys.path.insert(0, 'functions/')
 
 ## IMPORT HELP FUNCTION
 from showhelp import *
-
 ## IMPORT PROMPT FUNCTION
 from prompt import *
-
 ## IMPORT COMMANDTEST FUNCTION
 from commandtest import *
 
@@ -23,27 +21,23 @@ class mandyApp():
 
 	## CREATE HELPCALL F()
 	def helpCall(self):
-		showHelp();
+		showHelp()
 
 
 	## CREATE PROMPTCALL F()
 	def promptCall(self):
-		prompt();
+		prompt()
 
 	## CREATE PROMPTTWOCALL F()
 	def promptTwoCall(self):
-		promptTwo();
+		promptTwo()
 
-	#def __init__(self):
-	#	os.system("ls");
+	def promptVarCall(self):
+		import prompt
+		print prompt.com_opt
+
 
 App = mandyApp()
-
-
 App.promptCall()
-
-
-while com_opt != exit:
-	App.promptTwoCall();
-	commandTest();
-	break
+App.promptTwoCall()
+App.promptVarCall()

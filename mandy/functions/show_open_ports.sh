@@ -10,7 +10,7 @@ GREEN='\033[0;32m'
 show_open_ports(){
 	printf "${YELLOW}Listing all open ports${NC}: \n"
 	echo
-	if(printf "${RED}`netstat -auntl`${NC} \n"); then
+	if(printf "${RED}`netstat -auntpl`${NC} \n"); then
 		echo "OK."
 	fi
 	echo
@@ -25,7 +25,7 @@ show_open_ports(){
 	echo >> logs/log.txt
 	echo "`date`" >> logs/log.txt
 	echo "Shows all open ports via MANDY, entry \"update\"." >> logs/log.txt
-	echo "Commands Executed: netstat -auntl" >> logs/log.txt
+	echo "Commands Executed: netstat -auntpl" >> logs/log.txt
 	echo "Commands Executed: sudo iptables -L" >> logs/log.txt
 	echo >> logs/log.txt
 }
