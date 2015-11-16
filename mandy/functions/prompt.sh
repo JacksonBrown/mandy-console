@@ -15,8 +15,6 @@ prompt(){
 	echo "Welcome to the Mandy console "
 	echo "type \"help\" for options."
 	echo
-	printf "${CYAN}Current version 0.5.1${NC} \n"
-	echo
 	echo "COLOR CODING: "
 	printf "${GREEN}Green${NC}: Command input \n"
 	printf "${RED}Red${NC}: Output of a command being run or by Mandy console \n"

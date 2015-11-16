@@ -19,7 +19,6 @@ def prompt():
 	subprocess.call(["cat", "logo"])
 	print "Welcome to the Mandy Console. "
 	print "type \"help\" for a list of options. \n"
-	print colored.cyan("Current version 0.5.1 \n")
 	print "COLOR CODING: "
 	print colored.green("Green") + com_inp 
 	print colored.red("Red") + com_out 
