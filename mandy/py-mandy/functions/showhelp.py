@@ -3,10 +3,12 @@
 # IMPORTS
 import subprocess
 from clint.textui import colored
+import os
 
 # CREATE HELP FUNCTION
 
 def showHelp():
+	print
 	print "List of available options: ";
 	print colored.cyan("show") + ": displays the system info "
 	print colored.cyan("users") + ": displays the system users "
@@ -35,3 +37,11 @@ def showHelp():
 	print colored.cyan("process") + ": show processes on the system "
 	print colored.cyan("services") + ": show services running on the system "
 	print
+	
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"List all commands in MANDY, entry \"ram\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: none\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+

@@ -3,6 +3,7 @@
 # IMPORTS
 import subprocess
 from clint.textui import colored
+from commandtest import *
 
 # TEXT VARIABLES
 com_inp = ": Command input "
@@ -29,5 +30,4 @@ def prompt():
 
 def promptTwo():
 	com_opt = raw_input(colored.green(">"))
-	return com_opt
-	print
+	commandTest(com_opt)

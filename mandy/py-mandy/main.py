@@ -4,25 +4,22 @@
 import os
 import subprocess
 import sys
-
-# SET SYSTEM PATH TO ADD FUNCTIONS DIR
 sys.path.insert(0, 'functions/')
 
-## IMPORT HELP FUNCTION
+## FILE IMPORTS
 from showhelp import *
-## IMPORT PROMPT FUNCTION
 from prompt import *
-## IMPORT COMMANDTEST FUNCTION
 from commandtest import *
+
+os.system("echo > logs/log.txt")
+os.system("echo > logs/show_directory_output.txt")
+os.system("echo > logs/log_mesg.txt")
+os.system("echo > logs/show_process.txt")
 
 # CLASSES
 
-class mandyApp():
-
-	## CREATE HELPCALL F()
-	def helpCall(self):
-		showHelp()
-
+## MANDYINIT CLASS
+class mandyInit():
 
 	## CREATE PROMPTCALL F()
 	def promptCall(self):
@@ -32,12 +29,7 @@ class mandyApp():
 	def promptTwoCall(self):
 		promptTwo()
 
-	def promptVarCall(self):
-		import prompt
-		print prompt.com_opt
 
-
-App = mandyApp()
+App = mandyInit()
 App.promptCall()
 App.promptTwoCall()
-App.promptVarCall()
