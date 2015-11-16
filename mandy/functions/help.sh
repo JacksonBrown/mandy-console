@@ -38,6 +38,7 @@ help_info(){
 	printf "${CYAN}process${NC}: show processes on the system \n"
 	printf "${CYAN}services${NC}: show services running on the system \n"	
 	printf "${CYAN}shells${NC}: show shells on the system \n"
+	printf "${CYAN}editssh${NC}: edit the sshd_config file \n"
 	echo
 
 	## LOG UPDATER

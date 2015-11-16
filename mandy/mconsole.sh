@@ -100,6 +100,9 @@ source functions/show_checklist.sh
 ## IMPORT SHOW SHELLS FUNCTION
 source functions/show_shells.sh
 
+## IMPORT EDIT SSHD_CONFIG FUNCTION
+source functions/edit_sshd.sh
+
 # SETTING NECESSARY ALIASES
 #alias cdm="cd"
 #shopt -s expand_aliases
@@ -218,6 +221,9 @@ run_case(){
 			;;
 		"shells")
 			show_shells
+			;;
+		"editssh")
+			edit_sshd
 			;;
 		*)
 			if [ "$option" == "exit" ]; then

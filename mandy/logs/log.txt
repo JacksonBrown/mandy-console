@@ -1,2 +1,12 @@
 
 MANDY LOG MESSAGES: 
+
+Mon Nov 16 12:45:10 CST 2015
+Listed all functions in MANDY, entry "help".
+Commands Executed: echo
+
+
+Mon Nov 16 12:45:35 CST 2015
+Removed directory via MANDY, entry "deldir".
+Commands Executed: sudo rm -r -f DIRECTORY VAR
+
