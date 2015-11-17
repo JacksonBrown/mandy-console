@@ -12,6 +12,11 @@ net_interface(){
 	echo
 	if (printf "${RED}`cat /etc/network/interfaces`${NC} \n"); then
 		echo "OK."
+		printf "${YELLOW}Would you like to open the interfaces file (y/n)?${NC} \n"
+		read inter_opt
+		if [ $inter_opt = "y" ]; then
+			sudo gedit /etc/network/interfaces
+		fi
 	fi
 	echo
 
