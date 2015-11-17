@@ -10,7 +10,6 @@ com_inp = ": Command input "
 com_out = ": Output of command being run "
 com_inf = ": Information from devs "
 com_act = ": Actions being commited or information needed "
-com_opt = 0
 
 # CREATE PROMPT FUNCTION
 
@@ -28,5 +27,6 @@ def prompt():
 # END MAIN PROMPT F()
 
 def promptTwo():
+	com_opt = 0
 	com_opt = raw_input(colored.green(">"))
 	commandTest(com_opt)

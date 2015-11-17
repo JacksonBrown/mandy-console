@@ -58,4 +58,55 @@ def showHelp():
 	os.system("echo \"Commands Executed: none\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 
+def deleteUser():
+	print colored.yellow('Enter usernames for deletion (there are five entries in total, type \"done\" on the extra entries): ')
+	option_one_del = raw_input()
+	option_two_del = raw_input()
+	option_three_del = raw_input()
+	option_four_del = raw_input()
+	option_five_del = raw_input()
+	print
+
+	if option_one_del == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user ' + '"' + option_one_del + '":')
+		os.system("sudo userdel " + option_one_del)
+		print "OK."
+
+	if option_two_del == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user ' + '"' + option_two_del + '":')
+		os.system("sudo userdel " + option_two_del)
+		print "OK."
+
+	if option_three_del == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user ' + '"' + option_three_del + '":')
+		os.system("sudo userdel " + option_three_del)
+		print "OK."
+
+	if option_four_del == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user ' + '"' + option_four_del + '":')
+		os.system("sudo userdel " + option_four_del)
+		print "OK."
+
+	if option_five_del == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user ' + '"' + option_five_del + '":')
+		os.system("sudo userdel " + option_five_del)
+		print "OK."
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Remove specified users in MANDY, entry \"ram\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo userdell USERVAR\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
 
