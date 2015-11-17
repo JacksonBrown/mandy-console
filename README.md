@@ -2,8 +2,6 @@
 
 Made by Jackson Brown, Blake Holloway 
 
-Last Update: September, 27, 2015
-
 for Mason, our dearest love
 
 
