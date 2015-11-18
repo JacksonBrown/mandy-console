@@ -18,12 +18,17 @@ def commandTest(x):
 			deleteUser()
 			from prompt import *
 			promptTwo()
+		elif x == 'gui':
+			from gui import *
+			createGui()
+			from prompt import *
+			promptTwo()
 		else:
 			print "Command entry not found."
 			from prompt import *
 			promptTwo()
 		break
-		print
+		print " "
 
 
 

@@ -1,19 +1,57 @@
 #!/usr/bin/python
 
 # IMPORTS
-import Tkinter
+from Tkinter import *
 import tkMessageBox
+import os
+from mandyfunctions import *
+import Image 
+import ImageTk
 
-# GUI SETS
-top = Tkinter.Tk()
-top.title("Mandy")
-top.minsize(600, 500)
 
-def helloCallBack():
-   tkMessageBox.showinfo( "Hello Python", "Hello World")
+# FUNCTIIONS
 
-B = Tkinter.Button(top, text ="Hello", command = helloCallBack)
+def createGui():
+	
+	# GUI SETS
+	root = Tk()
+	root.title("Mandy")
+	root.minsize(600, 500)
 
-B.pack()
+	# VARAIABLES
+	command_output = StringVar()
+	img = ImageTk.PhotoImage(Image.open("images.duckduckgo.com.jpeg"))
 
-top.mainloop()
+	# CREATEGUI FUNCTIONS
+
+
+	## CALLBACK TEST FUNCTION
+	def helloCallBack():
+		#tkMessageBox.showinfo("Command Output", os.system("ls"))
+		import mandyfunctions
+		command_output.set("command output here")
+		output.pack()
+
+
+	# SET WIDGET ATT.
+
+
+	## SUBMIT BUTTON
+	submit = Button(
+		root, 
+		text ="Run", 
+		command = helloCallBack
+		)
+
+	## OUTPUT LABEL
+	output = Label( 
+		root, 
+		textvariable=command_output, 
+		image = img, 
+		relief=RAISED 
+		)
+
+	# SET WIDGET GEO.
+	submit.pack()
+
+	root.mainloop()
