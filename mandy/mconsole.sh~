@@ -225,13 +225,6 @@ run_case(){
 		"editssh")
 			edit_sshd
 			;;
-		"clear")
-			clear
-			;;
-		"mandyhistory")
-			cat logs/log.txt
-			echo
-		;;
 		*)
 			if [ "$option" == "exit" ]; then
 				echo "Exiting Mandy"
@@ -266,6 +259,17 @@ run_case(){
 		## END CASE
 }
 
+add_common_cmd(){
+	case $option in
+		"clear")
+			clear
+			;;
+		"mandyhistory")
+			cat logs/log.txt
+			echo
+		;;
+	esac
+}
 
 
 # FUNCTION CALLING
@@ -278,6 +282,7 @@ prompt2
 
 ## CALL RUN_CASE/ADD_COMMON_CMD FUNCTIONS
 run_case
+add_common_cmd
 
 # ENDING LOOP
 done

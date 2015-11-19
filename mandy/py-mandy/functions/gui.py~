@@ -70,7 +70,9 @@ def createGui():
 		root, 
 		text = header_var, 
 		bg = "white", 
-		font = ('helv36')
+		font = ('helv36'), 
+		fill = "both", 
+		expand = "yes"
 		)
 
 
