@@ -12,19 +12,20 @@ import ImageTk
 # FUNCTIIONS
 
 def createGui():
-	
+
 	# GUI SETS
 	root = Tk()
 	root.title("Mandy")
-	root.minsize(600, 500)
-	root.maxsize(600, 500)
+	root.minsize(600, 840)
+	root.maxsize(600, 840)
 	#root.configure(background='white')
 	root["bg"] = "white"
 
 	# VARAIABLES
-	command_output = StringVar()
 	img = ImageTk.PhotoImage(Image.open("images.duckduckgo.com.jpeg"))
-	header_var = "Mandy Console"
+	input_header_var = "Input: "
+	output_header_var = "Output: "
+	header_img = ImageTk.PhotoImage(Image.open("header.png"))
 
 	# CREATEGUI FUNCTIONS
 
@@ -33,8 +34,9 @@ def createGui():
 	def helloCallBack():
 		#tkMessageBox.showinfo("Command Output", os.system("ls"))
 		import mandyfunctions
+		command_output = StringVar()
 		command_output.set("command output here")
-		output.pack()
+		outputWidget.insert(INSERT, "%s" % (command_output))
 
 	## MAKE LABEL FUNCTION
 	def make_label(master, x, y, h, w, *args, **kwargs):
@@ -53,32 +55,112 @@ def createGui():
 	submit = Button(
 		root, 
 		text ="Run", 
-		command = helloCallBack
+		command = helloCallBack, 
+		width = 10, 
+		relief=RAISED
  		)
 
 	## OUTPUT LABEL
-	output = Label( 
+	outputWidget = Text( 
 		root, 
-		textvariable=command_output, 
-		image = img, 
-		relief=RAISED 
+		height = "20", 
+		relief=RAISED
 		)
 	#output = make_label(root, 0, 0, 500, 600, textvariable=command_output, foreground="black")
+
+	## INPUT TEXT
+	inputWidget = Text(
+		root, 
+		height="20",
+		relief=RAISED
+		)
 
 	## HEADER LABEL
 	header = Label(
 		root, 
-		text = header_var, 
+		image = header_img,
+		bg = "white",
+		borderwidth = 0,
+		highlightthickness = 0, 
+		relief=RAISED
+		)
+
+	## INPUT HEADER LABEL
+	inputHeader = Label(
+		root, 
 		bg = "white", 
-		font = ('helv36'), 
-		fill = "both", 
-		expand = "yes"
+		font = ('helv36'),
+		text = input_header_var, 
+		borderwidth = 0,
+		highlightthickness = 0, 
+		height = 1, 
+		relief=RAISED
+		)
+
+	## INPUT HEADER LABEL
+	outputHeader = Label(
+		root, 
+		bg = "white", 
+		font = ('helv36'),
+		text = output_header_var, 
+		borderwidth = 0,
+		highlightthickness = 0, 
+		height = 1, 
+		relief=RAISED
+		)
+
+	## SPACER LABELS
+	spacer_one = Label(
+		root, 
+		bg = "white", 
+		font = ('helv36'),
+		borderwidth = 0,
+		highlightthickness = 0, 
+		height = 1, 
+		relief=RAISED
+		)
+
+	spacer_two = Label(
+		root, 
+		bg = "white", 
+		font = ('helv36'),
+		borderwidth = 0,
+		highlightthickness = 0, 
+		height = 1, 
+		relief=RAISED
+		)
+
+	spacer_three = Label(
+		root, 
+		bg = "white", 
+		font = ('helv36'),
+		borderwidth = 0,
+		highlightthickness = 0, 
+		height = 1, 
+		relief=RAISED
+		)
+
+	spacer_four = Label(
+		root, 
+		bg = "white", 
+		font = ('helv36'),
+		borderwidth = 0,
+		highlightthickness = 0, 
+		height = 1, 
+		relief=RAISED
 		)
 
 
 	# SET WIDGET GEO.
-	header.place(x=20, y=20)
 	header.pack()
+	inputHeader.pack()
+	spacer_one.pack()
+	inputWidget.pack()
+	spacer_four.pack()
+	outputHeader.pack()
+	spacer_two.pack()
+	outputWidget.pack()
+	spacer_three.pack()
 	submit.pack()
 
 	root.mainloop()

@@ -29,23 +29,19 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
-		## ELIF GUI
 		elif x == 'gui':
 			from gui import *
 			createGui()
 			from prompt import *
 			promptTwo()
 
-		## ELIF CLEAR
 		if x == 'clear':
 			os.system("clear")
 
-		## ELIF MANDYHISTORY
 		elif x == 'mandyhistory':
 			log_var = open(log_path)
 			print log_var.read()
 
-		## ELSE
 		else:
 			print "You're a " + x + "."
 			from prompt import *
