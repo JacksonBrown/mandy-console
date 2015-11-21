@@ -21,16 +21,25 @@ class Application(Frame):
 		command_output.set("command output here")
 		outputWidget.insert(INSERT, "%s" % (command_output))
 
-	def closeWindow(self):
-		root.destroy()
 
 	## CREATE GUI FUNCTION
 	def createGui(self):
+
 		# VARAIABLES
-		img = ImageTk.PhotoImage(Image.open("images/images.duckduckgo.com.jpeg"))
-		input_header_var = "Input: "
-		output_header_var = "Output: "
-		header_img = ImageTk.PhotoImage(Image.open("images/header.png"))
+
+		## COSBY PATH VARIABLE SET
+		self.cosby_path = "images/images.duckduckgo.com.jpeg"
+		self.img = ImageTk.PhotoImage(Image.open(self.cosby_path))
+
+
+		## INPUT LABEL VARIABLES
+		self.input_header_var = "Input: "
+		self.output_header_var = "Output: "
+
+
+		## IMAGE PATH VARIABLE SET
+		self.image_path = "images/header.png"
+		self.header_img = ImageTk.PhotoImage(Image.open(self.image_path))
 
 
 		## SUBMIT BUTTON
@@ -40,30 +49,83 @@ class Application(Frame):
 		self.submit["width"]   = 10
 		self.submit["relief"]  = RAISED
 
-		self.submit.pack({"side": "left"})
 
 		## QUIT BUTTON
 		self.QUIT            = Button(self)
 		self.QUIT["text"]    = "QUIT"
 		self.QUIT["fg"]      = "red"
-		self.QUIT["command"] = self.closeWindow()
+		self.QUIT["command"] = self.quit
 		self.QUIT["width"]   = 10
 		self.QUIT["relief"]  = RAISED
 
-		self.QUIT.pack({"side": "left"})
+
+		## INPUT LABEL
+		self.inputWidget           = Text(self)
+		self.inputWidget["height"] = 20
+		self.inputWidget["relief"] = RAISED
+		self.inputWidget["bg"]     = "white"
+
 
 		## OUTPUT LABEL
 		self.outputWidget           = Text(self)
 		self.outputWidget["height"] = 20
 		self.outputWidget["relief"] = RAISED
+		self.outputWidget["bg"]     = "white"
 
-		self.outputWidget.pack({"side": "left"})
 
+		## HEADER LABEL
+		self.headerLabel 	   	       = Label(self)
+		self.headerLabel["relief"] 	       = RAISED
+		self.headerLabel["image"] 	       = self.header_img
+		self.headerLabel["borderwidth"]        = 0
+		self.headerLabel["highlightthickness"] = 0
+
+
+		## INPUT HEADER LABEL
+		self.inputHeaderLabel 			    = Label(self)
+		self.inputHeaderLabel["relief"]		    = RAISED
+		self.inputHeaderLabel["text"]               = self.input_header_var
+		self.inputHeaderLabel["borderwidth"]        = 0
+		self.inputHeaderLabel["highlightthickness"] = 0
+
+		## OUTPUT HEADER LABEL
+		self.outputHeaderLabel 			     = Label(self)
+		self.outputHeaderLabel["relief"]	     = RAISED
+		self.outputHeaderLabel["text"]               = self.output_header_var
+		self.outputHeaderLabel["borderwidth"]        = 0
+		self.outputHeaderLabel["highlightthickness"] = 0
+
+
+		# PACKING ORDER
+
+		## SET HEADER LABEL
+		self.headerLabel.pack()
+
+
+		## PACK INPUT
+		self.inputHeaderLabel.pack()
+		self.inputWidget.pack()
+
+
+		## PACK OUTPUT
+		self.outputHeaderLabel.pack()
+		self.outputWidget.pack()
+
+
+		## PACK QUIT BUTTON
+		self.QUIT.pack(pady=20)
+
+
+		## PACK RUN BUTTON
+		self.submit.pack()
 
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
 		self.pack()
+		self.master.minsize(600, 850)
+		self.master.title("Mandy")
 		self.createGui()
+
 
 root = Tk()
 mandyGui = Application(master=root)
