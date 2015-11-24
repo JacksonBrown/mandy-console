@@ -39,6 +39,7 @@ help_info(){
 	printf "${CYAN}services${NC}: show services running on the system \n"	
 	printf "${CYAN}shells${NC}: show shells on the system \n"
 	printf "${CYAN}editssh${NC}: edit the sshd_config file \n"
+	printf "${CYAN}ubuntuguestdisable${NC}: remove ubuntu guest account \n"
 	echo
 
 	## LOG UPDATER

@@ -1,0 +1,2 @@
+Removed guest account via MANDY, entry "ubuntudisable".
+Commands Executed: echo "-guest=false" >> /usr/share/lightdm/lightdm.conf

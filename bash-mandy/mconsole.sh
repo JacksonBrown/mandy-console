@@ -232,6 +232,9 @@ run_case(){
 			cat logs/log.txt
 			echo
 		;;
+		"ubuntuguestdisable")
+			disable_ubuntu_guest
+			;;
 		*)
 			if [ "$option" == "exit" ]; then
 				echo "Exiting Mandy"
