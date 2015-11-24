@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 # IMPORTS
+
 from Tkinter import *
 import Tkinter as tk
 import tkMessageBox
@@ -9,6 +10,10 @@ from mandyfunctions import *
 import Image 
 import ImageTk
 
+
+# VARIABLES
+
+## CREATE NESW VARS
 E = tk.E
 W = tk.W
 N = tk.N
@@ -30,9 +35,11 @@ class Application(Frame):
 	def helloCallBack(self):
 		#tkMessageBox.showinfo("Command Output", os.system("ls"))
 		import mandyfunctions
-		command_output = StringVar()
-		command_output.set("command output here")
-		outputWidget.insert(INSERT, "%s" % (command_output))
+		self.input_var = self.inputWidget.get("1.0", "end-1c")
+		import commandtest as ct
+		self.output_var = (ct.commandTest(self.input_var))
+
+		self.outputWidget.insert(INSERT, "%s" % (self.output_var))
 
 
 	## CREATE GUI FUNCTION
@@ -60,6 +67,7 @@ class Application(Frame):
 
 		## CREATE INPUT VARIABLE
 		self.input_var = StringVar()
+		self.output_var = StringVar()
 
 
 		## MENU CREATE
@@ -124,6 +132,11 @@ class Application(Frame):
 		self.outputHeaderLabel["image"]              = self.output_header_var
 		self.outputHeaderLabel["borderwidth"]        = 0
 		self.outputHeaderLabel["highlightthickness"] = 0
+
+		#self.ohl = self.outputHeaderLabel.winfo_id()
+
+		#os.system('xterm -into %d -geometry 80x20 -sb -e python &' % self.ohl)
+		#os.system('xterm -into %d -sb -e python &' % self.outputWidget)
 
 
 		# PACKING ORDER

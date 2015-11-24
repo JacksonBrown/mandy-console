@@ -32,7 +32,7 @@ def commandTest(x):
 		## ELIF GUI
 		elif x == 'gui':
 			from gui import *
-			createGui()
+			main()
 			from prompt import *
 			promptTwo()
 
