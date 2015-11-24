@@ -1,11 +1,16 @@
 #!/bin/bash
 
-# REMOVES WORLD READABLE PERMISSIONS TO HOME DIRECTORIES ENTERED
+# COLOR VARIABLES
+RED='\033[0;31m'
+NC='\033[0m'
+CYAN='\033[0;36m'
+YELLOW='\033[0;33m'
+GREEN='\033[0;32m'
+
 rm_readable_home_dir(){
 	
 	# PROMPT AND ENTRIES
-	echo
-	echo "Enter users to remove world readable permssions "
+	printf "${YELLOW}Enter users to remove world readable permssions${NC}: "
 	echo "(five entries total, type \"done\" for blank entries): "
 	read option_one_readable
 	read option_two_readable
@@ -78,8 +83,4 @@ rm_readable_home_dir(){
 
 	echo
 }
-
-# CALL FUNCTION
-rm_readable_home_dir
-
 

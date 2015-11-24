@@ -166,6 +166,29 @@ def directoryDelete():
 ########################################################
 
 
+## DIRECTORY SCAN FUNCTION
+def directoryScan():
+	print colored.yellow("Enter a directory to be scanned: ")
+	directory_scan_option = raw_input()
+
+	## SCANNED DICTIONARY
+	#directory_scan_dictionary_array = ["passwords", "bank", "pass", "credit", "cards", "accounts", "Passwords", "creditcards", "creditcardinfo", "bankpasswords", "keylog", 	"keylogger", "rootkit", "usernames", "users", "secret", "userinfo"]
+
+
+	print "stopping point @ " + directory_scan_option
+
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Scan specified directory in MANDY, entry \"deldir\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: print\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
 ## ADD CLEAR
 def clearFunc():
 	os.system("clear")

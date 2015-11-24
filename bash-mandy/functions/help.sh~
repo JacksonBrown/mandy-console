@@ -41,7 +41,6 @@ help_info(){
 	printf "${CYAN}editssh${NC}: edit the sshd_config file \n"
 	printf "${CYAN}ubuntuguestdisable${NC}: remove ubuntu guest account \n"
 	printf "${CYAN}removereadablehome${NC}: remove world readable perms on home dir files \n"
-	printf "${CYAN}scan${NC}: runs a scan on an input network \n"
 	echo
 
 	## LOG UPDATER

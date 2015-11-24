@@ -1,1 +1,29 @@
 
+BEGINNING NMAP SCAN
+
+######################
+__OPERATING SYSTEM SCAN__ 
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2015-11-24 12:34 CST
+Nmap done: 0 IP addresses (0 hosts up) scanned in 0.23 seconds
+
+######################
+__PROBE SCAN__
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2015-11-24 12:34 CST
+Nmap done: 0 IP addresses (0 hosts up) scanned in 0.12 seconds
+
+######################
+__VERBOSE SCAN__
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2015-11-24 12:34 CST
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 0 IP addresses (0 hosts up) scanned in 0.06 seconds
+
+######################
+__IPV6 SCAN__
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2015-11-24 12:34 CST
+Nmap done: 0 IP addresses (0 hosts up) scanned in 0.07 seconds
+
+######################

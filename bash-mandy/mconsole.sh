@@ -103,6 +103,12 @@ source functions/show_shells.sh
 ## IMPORT EDIT SSHD_CONFIG FUNCTION
 source functions/edit_sshd.sh
 
+## IMPORT REMOVE READABLE HOME
+source functions/rm_readable_home.sh
+
+## IMPORT SCAN FUNCTION
+source functions/fullscan/scan.sh
+
 # SETTING NECESSARY ALIASES
 #alias cdm="cd"
 #shopt -s expand_aliases
@@ -234,6 +240,13 @@ run_case(){
 		;;
 		"ubuntuguestdisable")
 			disable_ubuntu_guest
+			;;
+		"removereadablehome")
+			rm_readable_home_dir
+			;;
+		"scan")
+			scan_prompt
+			nmap_scan
 			;;
 		*)
 			if [ "$option" == "exit" ]; then
