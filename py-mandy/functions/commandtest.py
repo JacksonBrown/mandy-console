@@ -10,7 +10,7 @@ import sys
 log_path = "../logs/log.txt"
 
 def commandTest(x):
-	while True:
+	while x != 'exit':
 
 		## IF HELP
 		if x == 'help':
@@ -53,16 +53,9 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
-		## ELIF EXIT
-		elif x == 'exit':
-			print
-			print "Goodbye :)"
-			break
-			sys.exit()
-
 		## ELSE
 		else:
-			print
-			break
+			print "You're a " + x
 
 
+		break
