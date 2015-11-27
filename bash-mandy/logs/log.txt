@@ -1,7 +1,2 @@
 
 MANDY LOG MESSAGES: 
-
-Tue Nov 24 13:16:15 CST 2015
-Listed all functions in MANDY, entry "help".
-Commands Executed: echo
-
