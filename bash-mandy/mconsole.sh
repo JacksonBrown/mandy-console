@@ -248,6 +248,9 @@ run_case(){
 			scan_prompt
 			nmap_scan
 			;;
+		"top")
+			top
+			;;
 		*)
 			if [ "$option" == "exit" ]; then
 				echo "Exiting Mandy"
@@ -255,7 +258,7 @@ run_case(){
 			else
 				echo >> logs/log.txt
 
-				if [ "$option" = 'mandy sucks' ];	then
+				if [ "$option" = "mandy sucks" ];	then
 					echo "you suck."
 					echo
 					sleep 3
@@ -269,6 +272,21 @@ run_case(){
 					sl
 					sleep 3
 					exit
+				elif [ "$option" = "loser" ] || [ "$option" = "you're a loser" ] || [ "$option" = "ur a loser" ]; then
+					echo "you're a loser too fam"
+					echo
+				elif [ "$option" = "skrillex" ]; then
+					echo "BWOW WOW YOI YOI YOI YOI YOI YOI WAAAAA BWA BWA BWOW WOW Y-Y-Y-Y-Y-Y-Y-Y-Y-Y-Y-Y-Y-YAAAA"
+					echo
+				elif [ "$option" = "mlg" ] || [ "$option" = "mlgpro" ]; then
+					echo
+					printf "What have you done? \nWhy have you done? \nWhat unearthly hell have you summoned? \nJesus christ man \nJust get out of my swamp... \n"
+					echo
+					echo
+					sudo apt-get install mplayer
+					echo
+					mplayer sounds/ayylmao.mp3
+					echo
 				else
 
 					echo "You're a $option"
@@ -285,9 +303,6 @@ run_case(){
 
 
 # FUNCTION CALLING
-
-## CALL PRINT FUNCTION
-#print
 
 ## CALL SECONDARY PROMPT FUNCTION
 prompt2

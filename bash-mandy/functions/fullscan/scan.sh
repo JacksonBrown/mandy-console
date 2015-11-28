@@ -12,7 +12,7 @@ CYAN='\033[0;36m'
 scan_prompt(){
 	echo "Enter network (or type \"help\" for a tutorial): "
 	read network
-	echo > scan_out.txt
+	echo > logs/scan_out.txt
 }
 
 ## RUN NMAP SCAN ON NETWORK VAR
@@ -26,24 +26,24 @@ nmap_scan(){
 
 		echo
 		echo "Initializing full scan"
-		echo "All scan info will be directed to \"scan_out.txt\" "
-		printf "${RED}EVERYTIME YOU RUN FULL SCAN \"scan_out.txt\" IS OVER WRITTEN${NOCOL} \n"
+		echo "All scan info will be directed to \"logs/scan_out.txt\" "
+		printf "${RED}EVERYTIME YOU RUN FULL SCAN \"logs/scan_out.txt\" IS OVER WRITTEN${NOCOL} \n"
 		echo "This may take several minutes"
 		echo
 		printf "${CYAN}BEGINNING NMAP SCAN ${NOCOL} \n"
 		echo "######################"
-		echo "BEGINNING NMAP SCAN" >> scan_out.txt
-		echo >> scan_out.txt
-		echo "######################" >> scan_out.txt
+		echo "BEGINNING NMAP SCAN" >> logs/scan_out.txt
+		echo >> logs/scan_out.txt
+		echo "######################" >> logs/scan_out.txt
 		echo
 
 		printf "${CYAN}Operating System Scan: ${NOCOL} \n"
-		printf "__OPERATING SYSTEM SCAN__ \n" >> scan_out.txt
-		if(nmap -A $network | tee >> scan_out.txt);
+		printf "__OPERATING SYSTEM SCAN__ \n" >> logs/scan_out.txt
+		if(nmap -A $network | tee >> logs/scan_out.txt);
 			then
-				echo >> scan_out.txt
-				echo "######################" >> scan_out.txt
-				#echo >> scan_out.txt
+				echo >> logs/scan_out.txt
+				echo "######################" >> logs/scan_out.txt
+				#echo >> logs/scan_out.txt
 				echo "OK.";
 			else
 				printf "${RED}Scan failed${NOCOL} \n";
@@ -52,12 +52,12 @@ nmap_scan(){
 		echo
 
 		printf "${CYAN}Probe Scan: ${NOCOL} \n"
-		echo "__PROBE SCAN__" >> scan_out.txt
-		if(nmap -sV $network | tee >> scan_out.txt);
+		echo "__PROBE SCAN__" >> logs/scan_out.txt
+		if(nmap -sV $network | tee >> logs/scan_out.txt);
 			then
-				echo >> scan_out.txt
-				echo "######################" >> scan_out.txt
-				#echo >> scan_out.txt
+				echo >> logs/scan_out.txt
+				echo "######################" >> logs/scan_out.txt
+				#echo >> logs/scan_out.txt
 				echo "OK.";
 			else
 				printf "${RED}Scan failed${NOCOL} \n";
@@ -66,12 +66,12 @@ nmap_scan(){
 		echo
 
 		printf "${CYAN}Verbose Scan: ${NOCOL} \n"
-		echo "__VERBOSE SCAN__" >> scan_out.txt
-		if(nmap -v $network | tee >> scan_out.txt);
+		echo "__VERBOSE SCAN__" >> logs/scan_out.txt
+		if(nmap -v $network | tee >> logs/scan_out.txt);
 			then
-				echo >> scan_out.txt
-				echo "######################" >> scan_out.txt
-				#echo >> scan_out.txt
+				echo >> logs/scan_out.txt
+				echo "######################" >> logs/scan_out.txt
+				#echo >> logs/scan_out.txt
 				echo "OK.";
 			else
 				printf "${RED}Scan failed${NOCOL} \n";
@@ -80,12 +80,12 @@ nmap_scan(){
 		echo
 	
 		printf "${CYAN}IPV6 Scan: ${NOCOL} \n"
-		echo "__IPV6 SCAN__" >> scan_out.txt
-		if(nmap -6 $network | tee >> scan_out.txt);
+		echo "__IPV6 SCAN__" >> logs/scan_out.txt
+		if(nmap -6 $network | tee >> logs/scan_out.txt);
 			then
-				echo >> scan_out.txt
-				echo "######################" >> scan_out.txt
-				#echo >> scan_out.txt
+				echo >> logs/scan_out.txt
+				echo "######################" >> logs/scan_out.txt
+				#echo >> logs/scan_out.txt
 				echo "OK.";
 			else
 				printf "${RED}Scan failed${NOCOL} \n";
@@ -94,7 +94,12 @@ nmap_scan(){
 		echo
 
 		echo "All scans complete "
-		echo "Output of scans has been sent to \"scan_out.txt\" "
+		echo "Output of scans has been sent to \"logs/scan_out.txt\" "
 		echo
+		## LOG UPDATER
+		echo >> logs/log.txt
+		echo "`date`" >> logs/log.txt
+		echo "Scanned input network via MANDY, entry \"removeage\"." >> logs/log.txt
+		echo "Commands Executed: sudo nmap -OPT -HOST" >> logs/log.txt
 	fi
 }

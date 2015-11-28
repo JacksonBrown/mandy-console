@@ -35,5 +35,11 @@ disable_ubuntu_guest(){
 
 	#sudo gedit /etc/lightdm/lightdm.conf
 	echo "Goodbye."
+	
+	## LOG UPDATER
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "Removed guestaccount via MANDY, entry \"disableubuntuguest\"." >> logs/log.txt
+	echo "Commands Executed: echo allow-guest=false > DIR" >> logs/log.txt
 }
 
