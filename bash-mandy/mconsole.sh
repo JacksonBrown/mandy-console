@@ -118,6 +118,7 @@ echo > $mandy_dir/logs/log.txt
 echo > $mandy_dir/logs/show_directory_output.txt
 echo > $mandy_dir/logs/log_mesg.txt
 echo > $mandy_dir/logs/show_process.txt
+echo > $mandy_dir/logs/scan_out.txt
 
 echo "MANDY LOG MESSAGES: " >> $mandy_dir/logs/log.txt
 
@@ -286,6 +287,9 @@ run_case(){
 					sudo apt-get install mplayer
 					echo
 					mplayer sounds/ayylmao.mp3
+					echo
+				elif [[ $option = you* ]]; then
+					echo "you too pal"
 					echo
 				else
 
