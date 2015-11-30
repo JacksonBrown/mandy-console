@@ -171,5 +171,46 @@ def clearFunc():
 	os.system("clear")
 
 
+########################################################
+
+
+## EDIT SERVICE
+def editService():
+	print colored.yellow("Enter service to be configured: ")
+	service_option_one = raw_input()
+	print colored.yellow("Enter action to be taken on " + service_option_one + ": ")
+	service_option_two = raw_input()
+
+	if service_option_one == "apache2":
+		if service_option_two == "restart":
+			os.system ("sudo service apache2 restart")
+		elif service_option_two == "start":
+			os.system("sudo service apache2 start")
+		elif service_option_two == "stop":
+			os.system("sudo service apache2 stop")
+		else
+			print colored.yellow("option not found")
+
+	if service_option_one == "mysql":
+		if service_option_two == "restart":
+			os.system ("sudo service mysql restart")
+		elif service_option_two == "start":
+			os.system("sudo service mysql start")
+		elif service_option_two == "stop":
+			os.system("sudo service mysql stop")
+		else
+			print colored.yellow("option not found")
+
+	if service_option_one == "vsftpd":
+		if service_option_two == "restart":
+			os.system ("sudo service vsftpd restart")
+		elif service_option_two == "start":
+			os.system("sudo service vsftpd start")
+		elif service_option_two == "stop":
+			os.system("sudo service vsftpd stop")
+		else
+			print colored.yellow("option not found")
+
+		
 
 
