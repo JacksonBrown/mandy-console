@@ -63,7 +63,7 @@ def showHelp():
 	print colored.cyan("services") + ": show services running on the system "
 	print colored.cyan("shells") +": show shells on the system "
 	print colored.cyan("editssh") + ": edit the sshd_config file "
-	print colored.cyan("editlightdm") + ": edit lightdm configuration file "
+	print colored.cyan("ubuntuguestdisable") + ": remove ubuntu guest account "
 	print colored.cyan("removereadablehome") + ": remove world readable perms on home dir files "
 	print colored.cyan("scan") + ": runs a scan on an input network "
 	print

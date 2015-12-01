@@ -239,8 +239,8 @@ run_case(){
 			cat logs/log.txt
 			echo
 		;;
-		"editlightdm")
-			edit_lightdm
+		"ubuntuguestdisable")
+			disable_ubuntu_guest
 			;;
 		"removereadablehome")
 			rm_readable_home_dir
