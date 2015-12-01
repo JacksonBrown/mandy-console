@@ -53,6 +53,18 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF EDITSERVICE
+		elif x == 'editservice':
+			editService()
+			from prompt import *
+			promptTwo()
+
+		## ELIF EDITSSH
+		elif x == 'editssh':
+			editSshd()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

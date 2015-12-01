@@ -155,14 +155,6 @@ def directoryDelete():
 	os.system("echo >> logs/log.txt")
 
 
-	##LOG UPDATER
-	os.system("echo >> logs/log.txt")
-	os.system("echo `date` >> logs/log.txt")
-	os.system("echo \"Remove specified directory in MANDY, entry \"deldir\".\" >> logs/log.txt")
-	os.system("echo \"Commands Executed: sudo rm -r -f DIRVAR\" >> logs/log.txt")
-	os.system("echo >> logs/log.txt")
-
-
 ########################################################
 
 
@@ -188,7 +180,7 @@ def editService():
 			os.system("sudo service apache2 start")
 		elif service_option_two == "stop":
 			os.system("sudo service apache2 stop")
-		else
+		else:
 			print colored.yellow("option not found")
 
 	if service_option_one == "mysql":
@@ -198,7 +190,7 @@ def editService():
 			os.system("sudo service mysql start")
 		elif service_option_two == "stop":
 			os.system("sudo service mysql stop")
-		else
+		else:
 			print colored.yellow("option not found")
 
 	if service_option_one == "vsftpd":
@@ -208,9 +200,73 @@ def editService():
 			os.system("sudo service vsftpd start")
 		elif service_option_two == "stop":
 			os.system("sudo service vsftpd stop")
-		else
+		else:
 			print colored.yellow("option not found")
-
 		
+	if service_option_one == "gdm":
+		if service_option_two == "restart":
+			os.system ("sudo service gdm restart")
+		elif service_option_two == "start":
+			os.system("sudo service gdm start")
+		elif service_option_two == "stop":
+			os.system("sudo service gdm stop")
+		else:
+			print colored.yellow("option not found")	
+
+	if service_option_one == "lightdm":
+		if service_option_two == "restart":
+			os.system ("sudo service lightdm restart")
+		elif service_option_two == "start":
+			os.system("sudo service lightdm start")
+		elif service_option_two == "stop":
+			os.system("sudo service lightdm stop")
+		else:
+			print colored.yellow("option not found")
+		
+	if service_option_one == "mdm":
+		if service_option_two == "restart":
+			os.system ("sudo service mdm restart")
+		elif service_option_two == "start":
+			os.system("sudo service mdm start")
+		elif service_option_two == "stop":
+			os.system("sudo service mdm stop")
+		else:
+			print colored.yellow("option not found")	
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Edit specified service in MANDY, entry \"deldir\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo service SERVICE VAR SERVICE OPT VAR\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## EDIT SSHD_CONFIG
+def editSshd():
+	print colored.yellow("Opening sshd_config file in vi: ")
+	sshd_path = "/etc/ssh/sshd_config"
+	ssh_path = "/etc/ssh/ssh_config"
+
+	if os.path.exists(sshd_path):
+		subprocess.call(["vi", sshd_path])
+	else:
+		print colored.red("sshd_config file was not found, attempting to open ssh_config")
+		if os.path.exists(ssh_path):
+			subprocess.call(["vi", ssh_path])
+		else:
+			print colored.red("returning to prompt")
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Open sshd_config file in MANDY, entry \"editssh\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: vi sshd_config_path\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
 
 

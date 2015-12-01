@@ -21,7 +21,7 @@ edit_sshd(){
 	##LOG UPDATER
 	echo >> logs/log.txt
 	echo "`date`" >> logs/log.txt
-	echo "Removed directory via MANDY, entry \"deldir\"." >> logs/log.txt
+	echo "Removed directory via MANDY, entry \"editssh\"." >> logs/log.txt
 	echo "Commands Executed: sudo rm -r -f DIRECTORY VAR" >> logs/log.txt
 	echo >> logs/log.txt
 }
