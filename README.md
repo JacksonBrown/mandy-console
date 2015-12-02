@@ -16,4 +16,4 @@ The Mandy Console is an all purpose console made as a control panel and producti
 `sudo bash mconsole.sh` OR `sudo bash /path/to/mconsole.sh`
 
 
-#:alien:
+#:alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien:
