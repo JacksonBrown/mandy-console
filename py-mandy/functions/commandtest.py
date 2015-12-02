@@ -71,6 +71,18 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF EDITSUDO
+		elif x == 'editsudo':
+			editSudo()
+			from prompt import *
+			promptTwo()
+
+		## ELIF LOGSEE
+		elif x == 'logsee':
+			logView()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

@@ -24,9 +24,9 @@ log_view(){
 
 	# BOOT LOG MESSAGES
 	printf "${YELLOW}Tail of boot log messages${NC}: \n"
-		if (printf "${RED}`sudo tail -n 10 /var/log/boot.log`${NC} \n"); then
+		if (printf "${RED}`sudo tail -n 10 /var/log/boot`${NC} \n"); then
 			echo "BOOT LOG MESSAGES: " >> logs/log_mesg.txt
-			echo "`sudo cat /var/log/boot.log`" >> logs/log_mesg.txt
+			echo "`sudo cat /var/log/boot`" >> logs/log_mesg.txt
 			echo log_mesg.txt
 		fi
 

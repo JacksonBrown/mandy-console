@@ -55,7 +55,7 @@ def showHelp():
 	print colored.cyan("groupsee") + ": view all of the users in a specified group "
 	print colored.cyan("changepass") + ": change password of specified 5 users "
 	print colored.cyan("editsudoremove") + ": remove specified 5 users from the sudo group "
-	print colored.cyan("logsee") + ": view the tail of log files and creat log_mesg.txt "
+	print colored.cyan("logsee") + ": view the tail of log files and create log_mesg.txt "
 	print colored.cyan("deldir") + ": delete a input directory "
 	print colored.cyan("cron") + ": view all the cron files in /etc/ "
 	print colored.cyan("editservice") + ": start, stop, or restart a service "
@@ -297,4 +297,118 @@ def editLightdm():
 	os.system("echo \"Open lightdm configuration file in MANDY, entry \"editssh\".\" >> logs/log.txt")
 	os.system("echo \"Commands Executed: vi lightdm_config_path\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
+
+
+######################################################## ADD FROM HERE
+
+
+## EDIT SUDOERS FILE
+def editSudo():
+	print colored.yellow("Opening the sudoers file for editing: ")
+	subprocess.call(["export", "EDITOR=nano"])
+	os.system("sudo nano /etc/sudoers")
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Opened the sudoers file via MANDY, entry \"editsudo\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo nano /etc/sudoers\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## VIEW LOG MESSAGES, WRITE TO TEXT FILES
+def logView():
+	print colored.yellow("Listing log messages, exporting to file \"log_mesg.txt\":")
+	print
+	os.system("echo > logs/log_mesg.txt")
+	print colored.yellow("which log file? ")
+	print colored.yellow("general=/var/log/messages, boot=/var/log/boot.log, debug=/var/log/debug, auth=/var/log/auth.log, daemon=/var/log/daemon.log, kernel=/var/log/kern.log")
+	log_view_option = raw_input()
+
+	
+	if log_view_option == 'general':
+		## PRINT TO CONSOLE
+		print colored.yellow("Tail of general log messages: ")
+		os.system("sudo tail -n 10 /var/log/messages")
+
+		## PRINT TO TEXT FILE
+		os.system("echo \"GENERAL LOG MESSAGES: \" >> logs/log_mesg.txt")
+		os.system("echo \"`sudo cat /var/log/messages`\" >> logs/log_mesg.txt")
+		os.system("echo >> logs/log_mesg.txt")
+
+	elif log_view_option == 'boot':
+		## PRINT TO CONSOLE
+		print colored.yellow("Tail of boot log messages: ")
+		os.system("sudo tail -n 10 /var/log/boot.log")
+
+		## PRINT TO TEXT FILE
+		os.system("echo \"BOOT LOG MESSAGES: \" >> logs/log_mesg.txt")
+		os.system("echo \"`sudo cat /var/log/boot`\" >> logs/log_mesg.txt")
+		os.system("echo >> logs/log_mesg.txt")
+
+	elif log_view_option == 'debug':
+		## PRINT TO CONSOLE
+		print colored.yellow("Tail of debug log messages: ")
+		os.system("sudo tail -n 10 /var/log/debug")
+
+		## PRINT TO TEXT FILE
+		os.system("echo \"DEBUG LOG MESSAGES: \" >> logs/log_mesg.txt")
+		os.system("echo \"`sudo cat /var/log/debug`\" >> logs/log_mesg.txt")
+		os.system("echo >> logs/log_mesg.txt")
+
+	elif log_view_option == 'auth':
+
+		## PRINT TO CONSOLE
+		print colored.yellow("Tail of auth log messages (user login/authentication): ")
+		os.system("sudo tail -n 10 /var/log/auth.log")
+
+		## PRINT TO TEXT FILE
+		os.system("echo \"AUTH LOG MESSAGES: \" >> logs/log_mesg.txt")
+		os.system("echo \"`sudo cat /var/log/auth.log`\" >> logs/log_mesg.txt")
+		os.system("echo >> logs/log_mesg.txt")
+
+	elif log_view_option == 'daemon':
+		## PRINT TO CONSOLE
+		print colored.yellow("Tail of daemon log messages: ")
+		os.system("sudo tail -n 10 /var/log/daemon.log")
+
+		## PRINT TO TEXT FILE
+		os.system("echo \"DAEMON LOG MESSAGES: \" >> logs/log_mesg.txt")
+		os.system("echo \"`sudo cat /var/log/daemon.log`\" >> logs/log_mesg.txt")
+		os.system("echo >> logs/log_mesg.txt")
+
+	elif log_view_option == 'kernel':
+		## PRINT TO CONSOLE
+		print colored.yellow("Tail of kernel log messages: ")
+		os.system("sudo tail -n 10 /var/log/kern.log")
+
+		## PRINT TO TEXT FILE
+		os.system("echo \"KERNEL LOG MESSAGES: \" >> logs/log_mesg.txt")
+		os.system("echo \"`sudo cat /var/log/kern.log`\" >> logs/log_mesg.txt")
+		os.system("echo >> logs/log_mesg.txt")
+
+	else:
+		print colored.red("log file specified not found.")
+
+	## TEST TO OPEN FILE
+	print colored.yellow("View the file \"log_mesg.txt\" file now (y/n)?")
+	log_view_option_two = raw_input()
+
+	if log_view_option_two == 'y':
+		os.system("gedit logs/log_mesg.txt")
+	else:
+		print colored.red("option other than y specified, closing.")
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Viewed log files via MANDY, entry \"editsudo\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: cat/var/LOG_VAR\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
 

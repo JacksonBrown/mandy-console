@@ -109,6 +109,9 @@ source functions/rm_readable_home.sh
 ## IMPORT SCAN FUNCTION
 source functions/fullscan/scan.sh
 
+## IMPORT TCP CAPTURE FUNCTION
+source functions/tcp_capture.sh
+
 # SETTING NECESSARY ALIASES
 #alias cdm="cd"
 #shopt -s expand_aliases
@@ -251,6 +254,25 @@ run_case(){
 			;;
 		"top")
 			top
+			;;
+		"dumptcp")
+			tcp_capture
+			;;
+		"ping")
+			echo "Host? "
+			read ping_host_option
+
+			echo "Count (type inf for endless): "
+			read ping_count_option
+
+			echo "Packet size (default 56): "
+			read ping_packetsize_option
+
+			if [ "$ping_times_option" = "inf" ]; then
+				sudo ping $ping_host_option -s $ping_packetsize_option
+			else
+				sudo ping $ping_host_option -s $ping_packetsize_option -c $ping_count_option
+			fi
 			;;
 		*)
 			if [ "$option" == "exit" ]; then

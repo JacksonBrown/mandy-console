@@ -13,3 +13,4 @@ lock_root_user(){
 	fi
 }
 
+lock_root_user

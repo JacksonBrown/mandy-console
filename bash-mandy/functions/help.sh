@@ -42,6 +42,7 @@ help_info(){
 	printf "${CYAN}editlightdm${NC}: edit lightdm configuration files \n"
 	printf "${CYAN}removereadablehome${NC}: remove world readable perms on home dir files \n"
 	printf "${CYAN}scan${NC}: runs a scan on an input network \n"
+	printf "${CYAN}dumptcp${NC}: view tcp packets in new window \n"
 	echo
 
 	## LOG UPDATER
