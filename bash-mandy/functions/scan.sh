@@ -10,6 +10,7 @@ CYAN='\033[0;36m'
 
 ## PROMPT WITH READ NETWORK VAR
 scan_prompt(){
+	cat logos/logo_scan
 	echo "Enter network (or type \"help\" for a tutorial): "
 	read network
 	echo > logs/scan_out.txt
@@ -21,6 +22,7 @@ nmap_scan(){
 	
 	if [ $network = "help" ]; then
 		echo "enter the address of a network you would like to scan."
+		echo
 	else
 
 

@@ -10,7 +10,7 @@ GREEN='\033[0;32m'
 # FUNCTIONS FOR PROMPT
 prompt(){
 	echo
-	cat logo
+	cat logos/logo
 	echo
 	echo "Welcome to the Mandy console "
 	echo "type \"help\" for options."

@@ -1,5 +1,15 @@
 #!/bin/bash
 
+FILE="/tmp/out.$$"
+GREP="/bin/grep"
+
+if [ "$(id -u)" != 0 ]; then
+	echo
+	echo "THIS MUST BE RUN AS ROOT!" 1>&2
+	echo
+	exit 1
+else
+
 # START DIR CHANGE
 # SET MANDY DIRECTORY VARIABLE/CHANGE DIRECTORY TO PARENT PATH
 mandy_dir=$( cd "$(dirname "${BASH_SOURCE}")" ; pwd -P )
@@ -107,7 +117,7 @@ source functions/edit_sshd.sh
 source functions/rm_readable_home.sh
 
 ## IMPORT SCAN FUNCTION
-source functions/fullscan/scan.sh
+source functions/scan.sh
 
 ## IMPORT TCP CAPTURE FUNCTION
 source functions/tcp_capture.sh
@@ -340,4 +350,5 @@ run_case
 done
 
 # LEAVING WITH EXIT 0 CODE
+fi
 exit 0
