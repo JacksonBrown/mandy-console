@@ -1,9 +1,7 @@
 #Mandy Console
 
-![Dank Meme](https://github.com/JacksonBrown/mandy-console/blob/master/bash-mandy/images/sadboys_logo.png)
-
+Nothing specail.
 For Mason, our dearest love, and dank meme expert.
-
 
 #DESCRIPTION
 
@@ -14,6 +12,3 @@ The Mandy Console is an all purpose console made as a control panel and producti
 #USAGE
 
 `sudo bash mconsole.sh` OR `sudo bash /path/to/mconsole.sh`
-
-
-#:alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien: :alien:
