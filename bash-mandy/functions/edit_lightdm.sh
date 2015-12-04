@@ -7,6 +7,10 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
+
+source ../mconsole.sh
+
+
 edit_lightdm(){
 	printf "${YELLOW}Opening lightdm configuration files${NC}: \n"
 
@@ -40,9 +44,9 @@ edit_lightdm(){
 	echo "Goodbye."
 	
 	## LOG UPDATER
-	echo >> logs/log.txt
-	echo "`date`" >> logs/log.txt
-	echo "Open lightdm configuration files via MANDY, entry \"disableubuntuguest\"." >> logs/log.txt
-	echo "Commands Executed: sudo gedit DIR/FILE" >> logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
+	echo "`date`" >> $mandy_dir/logs/log.txt
+	echo "Open lightdm configuration files via MANDY, entry \"disableubuntuguest\"." >> $mandy_dir/logs/log.txt
+	echo "Commands Executed: sudo gedit DIR/FILE" >> $mandy_dir/logs/log.txt
 }
 

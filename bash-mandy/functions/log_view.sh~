@@ -89,7 +89,7 @@ log_view(){
 	echo "`date`" >> $mandy_dir/logs/log.txt
 	echo "Viewed log files via MANDY, entry \"logsee\"." >> $mandy_dir/logs/log.txt
 	echo "Commands Executed: cat/var/LOG_VAR" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
 
 }
 

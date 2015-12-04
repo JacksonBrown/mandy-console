@@ -103,9 +103,9 @@ nmap_scan(){
 		echo
 
 		## LOG UPDATER
-		echo >> $mandy_dir/logs/log.txt
-		echo "`date`" >> $mandy_dir/logs/log.txt
-		echo "Scanned input network via MANDY, entry \"removeage\"." >> $mandy_dir/logs/log.txt
-		echo "Commands Executed: sudo nmap -OPT -HOST" >> $mandy_dir/logs/log.txt
+		echo >> logs/log.txt
+		echo "`date`" >> logs/log.txt
+		echo "Scanned input network via MANDY, entry \"removeage\"." >> logs/log.txt
+		echo "Commands Executed: sudo nmap -OPT -HOST" >> logs/log.txt
 	fi
 }

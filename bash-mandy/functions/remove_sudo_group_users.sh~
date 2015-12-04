@@ -7,10 +7,6 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
-
-source ../mconsole.sh
-
-
 ## PROMPT FUNCTION WITH OPTION VARIABLES (READ)
 prompt_group(){
 	printf "${YELLOW}Enter users for sudo group remove (five entries total, type \"done\" if an entry is blank)${NC}: \n"

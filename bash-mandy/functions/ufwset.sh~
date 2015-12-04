@@ -21,16 +21,16 @@ set_ufw_enable(){
 	fi
 
 	echo
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Enables and configures ufw firewall via MANDY, entry \"setufw\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo ufw enable" >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo ufw default deny" >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo ufw deny in http" >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo ufw deny in smtp" >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo ufw allow in 80" >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo ufw allow in 22" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "Enables and configures ufw firewall via MANDY, entry \"setufw\"." >> logs/log.txt
+	echo "Commands Executed: sudo ufw enable" >> logs/log.txt
+	echo "Commands Executed: sudo ufw default deny" >> logs/log.txt
+	echo "Commands Executed: sudo ufw deny in http" >> logs/log.txt
+	echo "Commands Executed: sudo ufw deny in smtp" >> logs/log.txt
+	echo "Commands Executed: sudo ufw allow in 80" >> logs/log.txt
+	echo "Commands Executed: sudo ufw allow in 22" >> logs/log.txt
+	echo >> logs/log.txt
 }
 
 set_ufw_ruleset(){

@@ -34,9 +34,9 @@ show_users(){
         echo
 
 
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Show users in system via MANDY, entry \"users\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: cat /etc/passwd | grep -e \"bash\"" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "Show users in system via MANDY, entry \"users\"." >> logs/log.txt
+	echo "Commands Executed: cat /etc/passwd | grep -e \"bash\"" >> logs/log.txt
+	echo >> logs/log.txt
 }

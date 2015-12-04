@@ -20,9 +20,9 @@ show_bin(){
 	echo
 
 	## LOG UPDATER
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Viewed bin files via MANDY, entry \"bin\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: ls /bin; ls /sbin" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "Viewed bin files via MANDY, entry \"bin\"." >> logs/log.txt
+	echo "Commands Executed: ls /bin; ls /sbin" >> logs/log.txt
+	echo >> logs/log.txt
 }

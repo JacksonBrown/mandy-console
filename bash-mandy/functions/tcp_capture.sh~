@@ -28,9 +28,9 @@ tcp_capture(){
 	fi
 
 	##LOG UPDATER
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Viewed tcp via MANDY, entry \"dumptcp\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo tcpdump -i TCP_OPTION_VAR" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "Viewed tcp via MANDY, entry \"dumptcp\"." >> logs/log.txt
+	echo "Commands Executed: sudo tcpdump -i TCP_OPTION_VAR" >> logs/log.txt
+	echo >> logs/log.txt
 }

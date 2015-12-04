@@ -7,10 +7,6 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
-
-source ../mconsole.sh
-
-
 ## PROMPT FUNCTION WITH OPTION VARIABLES (READ)
 prompt_age(){
 	printf "${YELLOW}Enter users for chage (five entries total, type \"done\" if an entry is blank)${NC}: \n"
@@ -84,9 +80,9 @@ conditional_test_age(){
 	echo
 
 	## LOG UPDATER
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Removed sudo users via MANDY, entry \"removeage\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo chage -M 40 USER_VAR" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "Removed sudo users via MANDY, entry \"removeage\"." >> logs/log.txt
+	echo "Commands Executed: sudo chage -M 40 USER_VAR" >> logs/log.txt
+	echo >> logs/log.txt
 }

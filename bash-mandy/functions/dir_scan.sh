@@ -7,6 +7,10 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
+
+source ../mconsole.sh
+
+
 # SCAN DICTIONARY FUNCTION
 array_scan(){
 	echo "Enter a directory to be scanned: "

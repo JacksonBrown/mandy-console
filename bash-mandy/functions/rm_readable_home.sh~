@@ -86,12 +86,5 @@ rm_readable_home_dir(){
 	fi
 
 	echo
-
-	## LOG UPDATER
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Removed readable home via MANDY, entry \"removereadablehome\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo chmod 0750 OPTION_VAR sudo" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
 }
 

@@ -7,10 +7,6 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
-
-source ../mconsole.sh
-
-
 prompt_show_group_users(){
 	echo
 	printf "${YELLOW}Enter the group to be viewed (type \"a\" to view all groups with all users)${NC}: \n"
@@ -26,10 +22,10 @@ show_group_users(){
 	printf "${RED}`cat /etc/group | grep $option_group`${NC} \n"
 	echo
 
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "View all users of a group via MANDY, entry \"groupsee\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: cat /etc/group" >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: cat /etc/group | grep $option_group" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "View all users of a group via MANDY, entry \"groupsee\"." >> logs/log.txt
+	echo "Commands Executed: cat /etc/group" >> logs/log.txt
+	echo "Commands Executed: cat /etc/group | grep $option_group" >> logs/log.txt
+	echo >> logs/log.txt
 }

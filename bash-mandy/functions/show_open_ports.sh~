@@ -26,10 +26,10 @@ show_open_ports(){
 	echo
 
 	## LOG UPDATER
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Shows all open ports via MANDY, entry \"update\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: netstat -auntpl" >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo iptables -L" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "Shows all open ports via MANDY, entry \"update\"." >> logs/log.txt
+	echo "Commands Executed: netstat -auntpl" >> logs/log.txt
+	echo "Commands Executed: sudo iptables -L" >> logs/log.txt
+	echo >> logs/log.txt
 }

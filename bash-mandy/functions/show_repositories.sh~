@@ -23,10 +23,10 @@ show_repositories(){
 	fi
 	echo
 
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "View current repositories via MANDY, entry \"repo\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: cat /etc/apt/sources.list" >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: cat /etc/apt/sources.list.d/official-package-repositories.list" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "View current repositories via MANDY, entry \"repo\"." >> logs/log.txt
+	echo "Commands Executed: cat /etc/apt/sources.list" >> logs/log.txt
+	echo "Commands Executed: cat /etc/apt/sources.list.d/official-package-repositories.list" >> logs/log.txt
+	echo >> logs/log.txt
 }

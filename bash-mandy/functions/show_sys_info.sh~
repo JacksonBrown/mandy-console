@@ -24,10 +24,10 @@ show_sys_info(){
 	echo "Operating System: `uname -o`"
 	echo
 
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Displays system info via MANDY, entry \"show\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: echo" >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: uname OPTION_VAR" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "Displays system info via MANDY, entry \"show\"." >> logs/log.txt
+	echo "Commands Executed: echo" >> logs/log.txt
+	echo "Commands Executed: uname OPTION_VAR" >> logs/log.txt
+	echo >> logs/log.txt
 }

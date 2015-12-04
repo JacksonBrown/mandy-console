@@ -7,6 +7,10 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
+
+source ../mconsole.sh
+
+
 help_info(){
 	## LIST OPT PRO/FUNC
 	echo "List of available options: "
@@ -46,9 +50,9 @@ help_info(){
 	echo
 
 	## LOG UPDATER
-	echo >> logs/log.txt
-	echo "`date`" >> logs/log.txt
-	echo "Listed all functions in MANDY, entry \"help\"." >> logs/log.txt
-	echo "Commands Executed: echo" >> logs/log.txt
-	echo >> logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
+	echo "`date`" >> $mandy_dir/logs/log.txt
+	echo "Listed all functions in MANDY, entry \"help\"." >> $mandy_dir/logs/log.txt
+	echo "Commands Executed: echo" >> $mandy_dir/logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
 }

@@ -7,6 +7,10 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
+
+source ../mconsole.sh
+
+
 edit_sshd(){
 	printf "${YELLOW}Opening sshd_config file in vi${NC}: \n"
 
@@ -19,9 +23,9 @@ edit_sshd(){
 	fi
 
 	##LOG UPDATER
-	echo >> logs/log.txt
-	echo "`date`" >> logs/log.txt
-	echo "Removed directory via MANDY, entry \"editssh\"." >> logs/log.txt
-	echo "Commands Executed: sudo rm -r -f DIRECTORY VAR" >> logs/log.txt
-	echo >> logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
+	echo "`date`" >> $mandy_dir/logs/log.txt
+	echo "Removed directory via MANDY, entry \"editssh\"." >> $mandy_dir/logs/log.txt
+	echo "Commands Executed: sudo rm -r -f DIRECTORY VAR" >> $mandy_dir/logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
 }

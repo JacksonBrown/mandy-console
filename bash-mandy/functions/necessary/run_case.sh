@@ -126,12 +126,27 @@ run_case(){
 			;;
 		ping*)
 			$option
+			echo
 			;;
 		ls*)
 			$option
+			echo
 			;;
 		pwd*)
 			$option
+			echo
+			;;
+		cd*)
+			$option
+			echo
+			;;
+		rm*)
+			$option
+			echo
+			;;
+		cat*)
+			$option
+			echo
 			;;
 		*)
 			if [ "$option" == "exit" ]; then

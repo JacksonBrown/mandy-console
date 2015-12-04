@@ -7,10 +7,6 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
-
-source ../mconsole.sh
-
-
 show_free(){
 	printf "${YELLOW}Listing free RAM in system${NC}: \n"
 	echo
@@ -21,9 +17,9 @@ show_free(){
 
 	##LOG UPDATER
 
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "List all free RAM via MANDY, entry \"ram\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: free" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "List all free RAM via MANDY, entry \"ram\"." >> logs/log.txt
+	echo "Commands Executed: free" >> logs/log.txt
+	echo >> logs/log.txt
 }

@@ -16,7 +16,7 @@ show_cron(){
 	echo
 	if(printf "${RED}`ls /etc/cron.*`${NC} \n"); then
 		echo "OK."
-		ls /etc/cron.* > $mandy_dir/logs/cron_files.txt
+		ls /etc/cron.* > logs/cron_files.txt
 	fi
 	echo
 

@@ -7,6 +7,10 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
+
+source ../mconsole.sh
+
+
 edit_service(){
 	printf "${YELLOW}Enter service to be configured${NC}: \n"
 	read service_option_one
@@ -74,9 +78,9 @@ edit_service(){
 	fi
 
 	## LOG UPDATER
-	echo >> logs/log.txt
-	echo "`date`" >> logs/log.txt
-	echo "Configrue services via MANDY, entry \"editservice\"." >> logs/log.txt
-	echo "Commands Executed: sudo service SERVICE_VAR SERVICE_VAR_OPTION" >> logs/log.txt
-	echo >> logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
+	echo "`date`" >> $mandy_dir/logs/log.txt
+	echo "Configrue services via MANDY, entry \"editservice\"." >> $mandy_dir/logs/log.txt
+	echo "Commands Executed: sudo service SERVICE_VAR SERVICE_VAR_OPTION" >> $mandy_dir/logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
 }

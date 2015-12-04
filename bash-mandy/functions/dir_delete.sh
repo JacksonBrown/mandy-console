@@ -7,6 +7,10 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
+
+source ../mconsole.sh
+
+
 dir_delete(){
 	printf "${YELLOW}Enter directory for deletion${NC}: \n"
 	read option_one_dir
@@ -20,9 +24,9 @@ dir_delete(){
 	fi
 
 	##LOG UPDATER
-	echo >> logs/log.txt
-	echo "`date`" >> logs/log.txt
-	echo "Removed directory via MANDY, entry \"deldir\"." >> logs/log.txt
-	echo "Commands Executed: sudo rm -r -f DIRECTORY VAR" >> logs/log.txt
-	echo >> logs/log.txt
+	echo >> $mand_dir/logs/log.txt
+	echo "`date`" >> $mandy_dir/logs/log.txt
+	echo "Removed directory via MANDY, entry \"deldir\"." >> $mandy_dir/logs/log.txt
+	echo "Commands Executed: sudo rm -r -f DIRECTORY VAR" >> $mandy_dir/logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
 }

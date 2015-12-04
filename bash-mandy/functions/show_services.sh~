@@ -20,9 +20,9 @@ show_services(){
 	echo
 
 	## LOG UPDATER
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
 	echo "`date`" >> logs/log.txt
-	echo "View running services via MANDY, entry \"editservice\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: sudo service --status-all" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo "View running services via MANDY, entry \"editservice\"." >> logs/log.txt
+	echo "Commands Executed: sudo service --status-all" >> logs/log.txt
+	echo >> logs/log.txt
 }

@@ -21,9 +21,9 @@ show_shells(){
 
 
 	## LOG UPDATER
-	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Viewed shells in system via MANDY, entry \"bin\"." >> $mandy_dir/logs/log.txt
-	echo "Commands Executed: cat -n /etc/shells" >> $mandy_dir/logs/log.txt
-	echo >> $mandy_dir/logs/log.txt
+	echo >> logs/log.txt
+	echo "`date`" >> logs/log.txt
+	echo "Viewed shells in system via MANDY, entry \"bin\"." >> logs/log.txt
+	echo "Commands Executed: cat -n /etc/shells" >> logs/log.txt
+	echo >> logs/log.txt
 }

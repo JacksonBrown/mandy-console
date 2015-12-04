@@ -25,7 +25,7 @@ prompt(){
 
 prompt2(){
 	#echo -ne
-	printf "${GREEN}`date`>${NC} "
+	printf "${GREEN}`date` | `pwd`>${NC} "
 	read option
 	echo
 }
