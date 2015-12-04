@@ -1,10 +1,14 @@
 /etc/cron.d:
 anacron
+john
+php5
 
 /etc/cron.daily:
 0anacron
+apache2
 apport
 apt
+aptitude
 bsdmainutils
 cracklib-runtime
 dpkg
@@ -12,6 +16,7 @@ logrotate
 man-db
 mlocate
 passwd
+polipo
 popularity-contest
 spamassassin
 update-notifier-common
@@ -27,4 +32,5 @@ upstart
 apt-xapian-index
 fstrim
 man-db
+tor
 update-notifier-common
