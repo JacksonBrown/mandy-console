@@ -1,8 +1,8 @@
 #Mandy Console
 
-Made by Jackson Brown, Blake Holloway 
+![Dank Meme](https://github.com/JacksonBrown/mandy-console/blob/master/bash-mandy/images/sadboys_logo.png)
 
-for Mason, our dearest love
+For Mason, our dearest love, and dank meme expert.
 
 
 #DESCRIPTION
