@@ -21,7 +21,7 @@ show_services(){
 
 	## LOG UPDATER
 	echo >> $mandy_dir/logs/log.txt
-	echo "`date`" >> logs/log.txt
+	echo "`date`" >> $mandy_dir/logs/log.txt
 	echo "View running services via MANDY, entry \"editservice\"." >> $mandy_dir/logs/log.txt
 	echo "Commands Executed: sudo service --status-all" >> $mandy_dir/logs/log.txt
 	echo >> $mandy_dir/logs/log.txt

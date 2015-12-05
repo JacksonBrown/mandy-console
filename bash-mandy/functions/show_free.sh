@@ -14,7 +14,7 @@ source ../mconsole.sh
 show_free(){
 	printf "${YELLOW}Listing free RAM in system${NC}: \n"
 	echo
-	if(printf "${RED}`free`${NC} \n"); then
+	if(printf "${RED}`free -h`${NC} \n"); then
 		echo "OK."
 	fi
 	echo

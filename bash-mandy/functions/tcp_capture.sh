@@ -13,18 +13,12 @@ source ../mconsole.sh
 
 tcp_capture(){
 	printf "${YELLOW}Capture tcp in new xterm window.${NC} \n"
-	printf "${YELLOW}wlan0 or eth0?${NC} \n"
+	printf "${YELLOW}enter interface to scan${NC} \n"
 	read tcp_dump_option
 
-	if [ "$tcp_dump_option" = "wlan0" ] || [ "$tcp_dump_option" = "eth0" ]; then
-
-		## WRITING TO XTERM
-		if (sudo xterm -hold -e "tcpdump -i $tcp_dump_option" &); then
-			echo "OK."
-		fi
-
-	else
-		printf "${RED}Input devie was not eth0 nor wlan0, exiting."
+	## WRITING TO XTERM
+	if (sudo xterm -hold -e "tcpdump -i $tcp_dump_option" &); then
+		echo "OK."
 	fi
 
 	##LOG UPDATER

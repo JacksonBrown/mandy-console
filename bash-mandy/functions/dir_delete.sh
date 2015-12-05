@@ -24,7 +24,7 @@ dir_delete(){
 	fi
 
 	##LOG UPDATER
-	echo >> $mand_dir/logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
 	echo "`date`" >> $mandy_dir/logs/log.txt
 	echo "Removed directory via MANDY, entry \"deldir\"." >> $mandy_dir/logs/log.txt
 	echo "Commands Executed: sudo rm -r -f DIRECTORY VAR" >> $mandy_dir/logs/log.txt

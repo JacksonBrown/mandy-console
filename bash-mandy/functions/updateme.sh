@@ -7,6 +7,10 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
+
+source ../mconsole.sh
+
+
 # CREATE UPDATE SYSTEM FUNCTION
 update_sys(){
 	printf "${CYAN}The updates will automatically be installed, continue (y/n)?${NC} \n"
@@ -58,10 +62,10 @@ update_sys(){
 	fi
 
 	##LOG UPDATER
-	echo >> logs/log.txt
-	echo "`date`" >> logs/log.txt
-	echo "Updates the system via MANDY, entry \"update\"." >> logs/log.txt
-	echo "Commands Executed: sudo apt-get --yes --force-yes update" >> logs/log.txt
-	echo "Commands Executed: sudo apt-get --yes --force-yes upgrade" >> logs/log.txt
-	echo >> logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
+	echo "`date`" >> $mandy_dir/logs/log.txt
+	echo "Updates the system via MANDY, entry \"update\"." >> $mandy_dir/logs/log.txt
+	echo "Commands Executed: sudo apt-get --yes --force-yes update" >> $mandy_dir/logs/log.txt
+	echo "Commands Executed: sudo apt-get --yes --force-yes upgrade" >> $mandy_dir/logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
 }
