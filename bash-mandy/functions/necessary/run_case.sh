@@ -148,6 +148,14 @@ run_case(){
 			$option
 			echo
 			;;
+		gedit*)
+			$option
+			echo
+			;;
+		sudo*)
+			$option
+			echo
+			;;
 		*)
 			if [ "$option" == "exit" ]; then
 				echo "Exiting Mandy"

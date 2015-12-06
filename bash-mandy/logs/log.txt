@@ -1,2 +1,16 @@
 
 MANDY LOG MESSAGES: 
+
+Sun Dec  6 10:04:25 CST 2015
+Listed all functions in MANDY, entry "help".
+Commands Executed: echo
+
+
+Sun Dec  6 10:04:30 CST 2015
+Viewed shells in system via MANDY, entry "bin".
+Commands Executed: cat -n /etc/shells
+
+
+Sun Dec  6 10:04:58 CST 2015
+Scanned input network via MANDY, entry "removeage".
+Commands Executed: sudo nmap -OPT -HOST
