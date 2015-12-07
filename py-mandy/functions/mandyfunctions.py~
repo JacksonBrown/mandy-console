@@ -35,7 +35,7 @@ def showFree():
 def showHelp():
 	print
 	print "List of available options: ";
-	print colored.cyan("show") + ": displays the system info "
+	print colored.cyan("show") + ": displays the system info " #
 	print colored.cyan("users") + ": displays the system users "
 	print colored.cyan("network") + ": reads the /etc/network/interfaces file"
 	print colored.cyan("bin") + ": show the bin directory "
@@ -48,22 +48,22 @@ def showHelp():
 	print colored.cyan("ports") + ": show all open ports "
 	print colored.cyan("setufw") + ": sets up the ufw firewall to configuration "
 	print colored.cyan("update") + ": updates the system "
-	print colored.cyan("removeuser") + ": removes the specified 5 users "
+	print colored.cyan("removeuser") + ": removes the specified 5 users " #
 	print colored.cyan("removeage") + ": removes and replaces the chage of 5 users "
 	print colored.cyan("space") + ": show free disk space in the system "
-	print colored.cyan("editsudo") + ": edits the /etc/sudoers file "
+	print colored.cyan("editsudo") + ": edits the /etc/sudoers file " #
 	print colored.cyan("groupsee") + ": view all of the users in a specified group "
 	print colored.cyan("changepass") + ": change password of specified 5 users "
 	print colored.cyan("editsudoremove") + ": remove specified 5 users from the sudo group "
-	print colored.cyan("logsee") + ": view the tail of log files and create log_mesg.txt "
-	print colored.cyan("deldir") + ": delete a input directory "
+	print colored.cyan("logsee") + ": view the tail of log files and create log_mesg.txt " #
+	print colored.cyan("deldir") + ": delete a input directory " #
 	print colored.cyan("cron") + ": view all the cron files in /etc/ "
-	print colored.cyan("editservice") + ": start, stop, or restart a service "
+	print colored.cyan("editservice") + ": start, stop, or restart a service " #
 	print colored.cyan("process") + ": show processes on the system "
 	print colored.cyan("services") + ": show services running on the system "
 	print colored.cyan("shells") +": show shells on the system "
-	print colored.cyan("editssh") + ": edit the sshd_config file "
-	print colored.cyan("editlightdm") + ": edit lightdm configuration file "
+	print colored.cyan("editssh") + ": edit the sshd_config file " #
+	print colored.cyan("editlightdm") + ": edit lightdm configuration file " #
 	print colored.cyan("removereadablehome") + ": remove world readable perms on home dir files "
 	print colored.cyan("scan") + ": runs a scan on an input network "
 	print
@@ -326,7 +326,7 @@ def logView():
 	print
 	os.system("echo > logs/log_mesg.txt")
 	print colored.yellow("which log file? ")
-	print colroed.yellow("general=/var/log/messages, boot=/var/log/boot.log, debug=/var/log/debug, auth=/var/log/auth.log, daemon=/var/log/daemon.log, kernel=/var/log/kern.log")
+	print colored.yellow("general=/var/log/messages, boot=/var/log/boot.log, debug=/var/log/debug, auth=/var/log/auth.log, daemon=/var/log/daemon.log, kernel=/var/log/kern.log")
 	log_view_option = raw_input()
 
 	
@@ -411,4 +411,54 @@ def logView():
 	os.system("echo >> logs/log.txt")
 
 
+########################################################
+
+
+## SHOW SYS INFO
+def showSysInfo():
+	print colored.yellow("Listing system info: ")
+	print
+
+	print "User: "
+	os.environ["USER"]
+	print
+
+	print "Architecture: "
+	os.system("uname -m")
+	print
+
+	print "System: "
+	subprocess.call(["uname"])
+	print
+
+	print "Uptime: "
+	subprocess.call(["uptime"])
+	print
+
+	print "Kernel Name: "
+	os.system("uname -s")
+	print
+
+	print "Network Host: "
+	os.system("uname -n")
+	print
+
+	print "Operating System: "
+	os.system("uname -o")
+	print
+
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Viewed system info via MANDY, entry \"editsudo\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: uname, print\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## DISPLAY USERS
 

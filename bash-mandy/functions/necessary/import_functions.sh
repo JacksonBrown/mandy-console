@@ -108,4 +108,7 @@ import_functions(){
 
 	## IMPORT TCP CAPTURE FUNCTION
 	source functions/tcp_capture.sh
+
+	## IMPORT HOW DO I FUNCTION
+	source functions/howdoi.sh
 }

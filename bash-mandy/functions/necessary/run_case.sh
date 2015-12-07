@@ -124,6 +124,9 @@ run_case(){
 		"dumptcp")
 			tcp_capture
 			;;
+		"howdoi")
+			howdoi
+			;;
 		ping*)
 			$option
 			echo

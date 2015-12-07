@@ -83,9 +83,14 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF SHOW
+		elif x == 'show':
+			showSysInfo()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x
-
 
 		break
