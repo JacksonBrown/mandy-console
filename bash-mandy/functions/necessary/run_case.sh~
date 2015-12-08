@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source ../../mconsole.sh
-
 ## RUN CASE FUNCTION
 run_case(){
 
@@ -128,9 +126,6 @@ run_case(){
 			;;
 		"howdoi")
 			howdoi
-			;;
-		"openpam")
-			open_pam
 			;;
 		ping*)
 			$option

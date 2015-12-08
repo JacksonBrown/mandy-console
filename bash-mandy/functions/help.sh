@@ -47,7 +47,8 @@ help_info(){
 	printf "${CYAN}removereadablehome${NC}: remove world readable perms on home dir files \n"
 	printf "${CYAN}scan${NC}: runs a scan on an input network \n"
 	printf "${CYAN}dumptcp${NC}: view tcp packets in new window \n"
-	printf "${CYAN}howdoi${NC}: opens google in a text based browser \n"
+	printf "${CYAN}howdoi${NC}: opens google in firefox web browser \n"
+	printf "${CYAN}openpam${NC}: views the chosen pam file \n"
 	echo
 
 	## LOG UPDATER

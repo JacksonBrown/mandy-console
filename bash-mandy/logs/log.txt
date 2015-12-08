@@ -1,15 +1,2 @@
 
 MANDY LOG MESSAGES: 
-
-Tue Dec  8 13:06:34 CST 2015
-Listed all functions in MANDY, entry "help".
-Commands Executed: echo
-
-
-Tue Dec  8 13:06:37 CST 2015
-Opened google in MANDY, entry "help".
-Commands Executed: links
-
-
-Entry not found: returned to console.
-

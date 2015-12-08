@@ -1,6 +1,6 @@
 #Mandy Console
 
-Nothing specail.
+Nothing special.
 For Mason, our dearest love, and dank meme expert.
 
 #DESCRIPTION

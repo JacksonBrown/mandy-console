@@ -111,4 +111,8 @@ import_functions(){
 
 	## IMPORT HOW DO I FUNCTION
 	source functions/howdoi.sh
+
+	## IMPORT OPEN PAM FUNCTION
+	source functions/open_pam.sh
 }
+

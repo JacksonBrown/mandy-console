@@ -31,7 +31,7 @@ update_sys(){
 				printf "${YELLOW}Running upgrade: \n"
 					printf "${RED}"
 						sudo apt-get --yes --force-yes upgrade
-					printf "${NC} \n";
+					printf "${NC} \n"
 			fi
 		# END IF TEST DEBIAN
 
@@ -46,6 +46,18 @@ update_sys(){
 			fi
 		fi
 		# END IF TEST FEDORA
+
+		## BEGIN IF TEST FOR DEBIAN INSTALL CRACKLIB
+		printf "${YELLOW}Would you like to install cracklib (y/n)?${NC}"
+		read ins_cracklib_opt
+
+		if [ "$ins_cracklib_opt" = "y" ]; then
+			if (printf "${RED}`sudo apt-get --yes --force-yes install libpam-cracklib$`{NC}"); then
+				echo "OK."
+			fi
+		else
+			echo "Option other then \"y\" specified."
+		fi
 
 
 	# BEGIN ERROR REPORTING
