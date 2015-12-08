@@ -11,11 +11,11 @@ dpkg
 logrotate
 man-db
 mlocate
-ntp
 passwd
 popularity-contest
 spamassassin
 update-notifier-common
+upstart
 
 /etc/cron.hourly:
 
@@ -24,6 +24,7 @@ update-notifier-common
 
 /etc/cron.weekly:
 0anacron
+apt-xapian-index
 fstrim
 man-db
 update-notifier-common

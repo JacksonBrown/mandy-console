@@ -1,6 +1,1 @@
 
-
-Mon Dec 7 12:52:51 CST 2015
-Viewed system info via MANDY, entry editsudo.
-Commands Executed: uname, print
-

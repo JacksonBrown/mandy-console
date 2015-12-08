@@ -89,6 +89,18 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF USERS
+		elif x == 'users':
+			showUsers()
+			from prompt import *
+			promptTwo()
+
+		## ELIF NETWORK
+		elif x == 'network':
+			showInterface()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

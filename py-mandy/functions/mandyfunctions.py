@@ -36,8 +36,8 @@ def showHelp():
 	print
 	print "List of available options: ";
 	print colored.cyan("show") + ": displays the system info " #
-	print colored.cyan("users") + ": displays the system users "
-	print colored.cyan("network") + ": reads the /etc/network/interfaces file"
+	print colored.cyan("users") + ": displays the system users " #
+	print colored.cyan("network") + ": reads the /etc/network/interfaces file" #
 	print colored.cyan("bin") + ": show the bin directory "
 	print colored.cyan("repo") + ": show the repositories in aptitude "
 	print colored.cyan("directory") + ": display a input directory "
@@ -406,7 +406,7 @@ def logView():
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
-	os.system("echo \"Viewed log files via MANDY, entry \"editsudo\".\" >> logs/log.txt")
+	os.system("echo \"Viewed log files via MANDY, entry \"logsee\".\" >> logs/log.txt")
 	os.system("echo \"Commands Executed: cat/var/LOG_VAR\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 
@@ -452,7 +452,7 @@ def showSysInfo():
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
-	os.system("echo \"Viewed system info via MANDY, entry \"editsudo\".\" >> logs/log.txt")
+	os.system("echo \"Viewed system info via MANDY, entry \"show\".\" >> logs/log.txt")
 	os.system("echo \"Commands Executed: uname, print\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 
@@ -461,4 +461,46 @@ def showSysInfo():
 
 
 ## DISPLAY USERS
+def showUsers():
+	print colored.yellow("Listing users in system with BASH shell: ")
+	os.system("cat /etc/passwd | grep -e \"bash\"")
 
+	print colored.yellow("Listing users in system with KORN shell: ")
+	os.system("cat /etc/passwd | grep -e \"ksh\"")
+
+	print colored.yellow("Listing users in system with C shell: ")
+	os.system("cat /etc/passwd | grep -e \"csh\"")
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Show users in system via MANDY, entry \"users\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: cat /etc/passwd | grep -e \"expression\"\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## READ NETWORK INTERFACE
+def showInterface():
+	print colored.yellow("Listing network interface: ")
+	os.system("cat /etc/network/interfaces")
+
+	print colored.yellow("Would you like to open the interfaces file (y/n)?")
+	inter_opt = raw_input()
+	if inter_opt == 'y':
+		os.system("gedit /etc/network/interfaces")
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Show network interface in system via MANDY, entry \"network\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: cat /etc/network/interfaces\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## SHOW BIN FILES

@@ -13,7 +13,7 @@ source ../mconsole.sh
 
 howdoi(){
 	printf "${YELLOW}Opening google in links.${NC} \n"
-	if (sudo xterm -hold -e "links www.google.com"); then
+	if (firefox www.google.com &); then
 		echo "OK."
 	fi
 

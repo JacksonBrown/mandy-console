@@ -93,5 +93,4 @@ def commandTest(x):
 		else:
 			print "You're a " + x
 
-
 		break
