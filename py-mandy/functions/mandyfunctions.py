@@ -38,8 +38,8 @@ def showHelp():
 	print colored.cyan("show") + ": displays the system info " #
 	print colored.cyan("users") + ": displays the system users " #
 	print colored.cyan("network") + ": reads the /etc/network/interfaces file" #
-	print colored.cyan("bin") + ": show the bin directory "
-	print colored.cyan("repo") + ": show the repositories in aptitude "
+	print colored.cyan("bin") + ": show the bin directory " #
+	print colored.cyan("repo") + ": show the repositories in aptitude " #
 	print colored.cyan("directory") + ": display a input directory "
 	print colored.cyan("pci") + ": show all devices connected via PCI bus "
 	print colored.cyan("ram") + ": show all free ram in the system "
@@ -71,7 +71,7 @@ def showHelp():
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
-	os.system("echo \"List all commands in MANDY, entry \"ram\".\" >> logs/log.txt")
+	os.system("echo \"List all commands in MANDY, entry \"help\".\" >> logs/log.txt")
 	os.system("echo \"Commands Executed: none\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 
@@ -462,14 +462,33 @@ def showSysInfo():
 
 ## DISPLAY USERS
 def showUsers():
+	passwd_var = "/etc/passwd"
 	print colored.yellow("Listing users in system with BASH shell: ")
-	os.system("cat /etc/passwd | grep -e \"bash\"")
+
+	# REVERT TO FOR SYSTEM COMMAND RUN INSTEAD OF PYTHON
+	#os.system("cat /etc/passwd | grep -e \"bash\"")
+
+	for line in open(passwd_var):
+		if "bash" in line:
+			sys.stdout.write(line)
 
 	print colored.yellow("Listing users in system with KORN shell: ")
-	os.system("cat /etc/passwd | grep -e \"ksh\"")
+
+	# REVERT TO FOR SYSTEM COMMAND RUN INSTEAD OF PYTHON
+	#os.system("cat /etc/passwd | grep -e \"ksh\"")
+
+	for line in open(passwd_var):
+		if "ksh" in line:
+			sys.stdout.write(line)
 
 	print colored.yellow("Listing users in system with C shell: ")
-	os.system("cat /etc/passwd | grep -e \"csh\"")
+	
+	# REVERT TO FOR SYSTEM COMMAND RUN INSREAD OF PYTHON
+	#os.system("cat /etc/passwd | grep -e \"csh\"")
+
+	for line in open(passwd_var):
+		if "csh" in line:
+			sys.stdout.write(line)
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -495,7 +514,7 @@ def showInterface():
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
-	os.system("echo \"Show network interface in system via MANDY, entry \"network\".\" >> logs/log.txt")
+	os.system("echo \"Show interfaces file via MANDY, entry \"network\".\" >> logs/log.txt")
 	os.system("echo \"Commands Executed: cat /etc/network/interfaces\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 
@@ -504,3 +523,45 @@ def showInterface():
 
 
 ## SHOW BIN FILES
+def showBin():
+	print colored.yellow("Listing/ /bin and /sbin: ") + "\n"
+
+	print colored.red("/bin directory: ")
+	subprocess.call(["ls", "/bin"])
+
+	print "\n ##### \n"
+
+	print colored.red("/sbin directory: ")
+	subprocess.call(["ls", "/sbin"])
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Show bin and sbin dir via MANDY, entry \"bin\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: cat /etc/network/interfaces\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+	
+
+########################################################
+
+
+## SHOW REPOSITORIES
+def showRepositories():
+	print colored.yellow("Listing repositories: ") + "\n"
+
+	sources_list = "/etc/apt/sources.list"
+	if os.path.exists(sources_list):
+		sources_open = open(sources_list)
+		print sources_open.read()
+
+	sources_oprl = "/etc/apt/sources.list.d/official-package-repositories.list"
+	if os.path.exists(sources_oprl):
+		sources_oprl_open = open(sources_oprl)
+		print sources_oprl_open.read()
+	 
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Show bin and sbin dir via MANDY, entry \"repo\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: cat /etc/network/interfaces\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")

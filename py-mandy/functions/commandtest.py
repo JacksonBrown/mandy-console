@@ -101,6 +101,18 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF BIN
+		elif x == 'bin':
+			showBin()
+			from prompt import *
+			promptTwo()
+
+		## ELIF REPO
+		elif x == 'repo':
+			showRepositories()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x
