@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+
 # IMPORTS
 import os
 import subprocess
@@ -9,10 +10,13 @@ sys.path.insert(0, 'functions/')
 ## FILE IMPORTS
 from prompt import *
 
+
+# CLEARING LOG FILES
 os.system("echo > logs/log.txt")
 os.system("echo > logs/show_directory_output.txt")
 os.system("echo > logs/log_mesg.txt")
 os.system("echo > logs/show_process.txt")
+
 
 # CLASSES
 
