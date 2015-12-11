@@ -12,7 +12,7 @@ source ../mconsole.sh
 
 
 howdoi(){
-	printf "${YELLOW}Opening google in links.${NC} \n"
+	printf "${YELLOW}Opening google in web browser.${NC} \n"
 	if (firefox www.google.com &); then
 		echo "OK."
 	fi

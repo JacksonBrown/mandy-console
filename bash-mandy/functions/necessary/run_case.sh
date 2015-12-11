@@ -132,6 +132,9 @@ run_case(){
 		"openpam")
 			open_pam
 			;;
+		"softwarescan")
+			software_scan
+			;;
 		ping*)
 			$option
 			echo

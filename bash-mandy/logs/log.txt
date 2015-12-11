@@ -1,5 +1,2 @@
 
 MANDY LOG MESSAGES: 
-
-Entry not found: returned to console.
-

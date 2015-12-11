@@ -114,5 +114,8 @@ import_functions(){
 
 	## IMPORT OPEN PAM FUNCTION
 	source functions/open_pam.sh
+
+	## IMPORT SOFTWARE SCAN FUNCTION
+	source functions/software_scan.sh
 }
 

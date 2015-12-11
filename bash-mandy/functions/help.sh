@@ -49,6 +49,7 @@ help_info(){
 	printf "${CYAN}dumptcp${NC}: view tcp packets in new window \n"
 	printf "${CYAN}howdoi${NC}: opens google in firefox web browser \n"
 	printf "${CYAN}openpam${NC}: views the chosen pam file \n"
+	printf "${CYAN}softwarescan${NC}: scans for prohibited hacking tools \n"
 	echo
 
 	## LOG UPDATER

@@ -14,19 +14,29 @@ show_checklist(){
 	printf "${RED}################ CHECKLIST ################${NC} \n"
 	echo
 	printf "${YELLOW}"
-	echo 'User Policy - 2'
-	echo
-	echo 'Access Control and Settings - 1'
-	echo
-	echo 'Forensics Questions - 1'
-	echo
-	echo 'Insecure Services - 1'
-	echo
-	echo 'Malware - 1'
-	echo
-	echo 'Policty Violation: Files -1'
-	echo
-	echo 'Policy Violation: Software (not malware) - 1'
-	echo
+	echo 'update linux kernel'
+	echo 'max password age must be set'
+	echo 'remove samba'
+	echo 'remove telnet'
+	echo 'disable root login ssh'
+	echo 'remove netcat backdoor'
+	echo 'check for hacking tools'
+	echo 'update bash'
+	echo 'auto check for updates daily'
+	echo 'change insecure passwords ESPECIALLY ROOT'
+	echo 'enable firewall'
+	echo 'install updates'
+	echo 'disable guest account'
+	echo 'remove prohibited media files'
+	echo 'check for php backdoor'
+	echo 'two root accounts'
+	echo 'user ID under 1000'
+	echo 'configure DNS server'
+	echo 'configure Web Server'
+	echo 'check localhost files'
+	echo 'remove unauthorized users'
+	echo 'remove unauthorized groups'
+	echo 'remove unauthorized administrators'
+	echo 'make sure all users have passwords'
 	printf "${NC}"
 }

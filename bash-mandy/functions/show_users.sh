@@ -30,6 +30,15 @@ show_users(){
                 echo "OK."
         fi
 
+	printf "${YELLOW}Would you like to open the /etc/passwd file (y/n)? ${NC} \n"
+	read open_passwd_option
+	if [ "$open_passwd_option" = "y" ]; then
+		if (sudo gedit /etc/passwd &); then
+			echo "OK."
+		fi
+	else
+		echo "Option other than \"y\" specified."
+	fi
 
 	echo >> $mandy_dir/logs/log.txt
 	echo "`date`" >> $mandy_dir/logs/log.txt

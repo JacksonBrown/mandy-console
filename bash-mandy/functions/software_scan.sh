@@ -7,6 +7,10 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
+
+source ../mconsole.sh
+
+
 # SCAN SOFTWARE FUNCTION
 software_scan(){
 	echo
@@ -53,7 +57,7 @@ software_scan(){
 		echo
 	fi
 
-	printf "${YELLOW}searching for sqlmap${NC}: \n"
+	printf "${LOW}searching for sqlmap${NC}: \n"
 	if(printf "${RED}** `dpkg -l | grep \"sqlmap\"`${NC} \n"); then
 		printf "${CYAN}OK. ${NC}"
 		echo
@@ -86,6 +90,12 @@ software_scan(){
 	echo
 	echo "DONE."
 	echo
+
+	## LOG UPDATER
+	echo >> $mandy_dir/logs/log.txt
+	echo "`date`" >> $mandy_dir/logs/log.txt
+	echo "Scanned for prohibited software in MANDY, entry \"help\"." >> $mandy_dir/logs/log.txt
+	echo "Commands Executed: dpkg -l, ls, grep" >> $mandy_dir/logs/log.txt
+	echo >> $mandy_dir/logs/log.txt
 }
 
-software_scan
