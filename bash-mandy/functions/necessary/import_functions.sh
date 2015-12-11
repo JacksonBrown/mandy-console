@@ -117,5 +117,8 @@ import_functions(){
 
 	## IMPORT SOFTWARE SCAN FUNCTION
 	source functions/software_scan.sh
+
+	## IMPORT PAM REPLACE FUNCTION
+	source functions/replace_pam_files.sh
 }
 

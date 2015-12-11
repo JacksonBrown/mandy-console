@@ -135,6 +135,9 @@ run_case(){
 		"softwarescan")
 			software_scan
 			;;
+		"replacepam")
+			replace_pam_files
+			;;
 		ping*)
 			$option
 			echo

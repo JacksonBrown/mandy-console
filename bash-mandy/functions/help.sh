@@ -50,6 +50,7 @@ help_info(){
 	printf "${CYAN}howdoi${NC}: opens google in firefox web browser \n"
 	printf "${CYAN}openpam${NC}: views the chosen pam file \n"
 	printf "${CYAN}softwarescan${NC}: scans for prohibited hacking tools \n"
+	printf "${CYAN}replacepam${NC}: replaces pam files \n"
 	echo
 
 	## LOG UPDATER
