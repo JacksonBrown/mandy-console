@@ -1,2 +1,12 @@
 
 MANDY LOG MESSAGES: 
+
+Sat Dec 12 23:31:24 CST 2015
+Listed all functions in MANDY, entry "help".
+Commands Executed: echo
+
+
+Sat Dec 12 23:31:34 CST 2015
+Views all devices connected by PCI via MANDY, entry "update".
+Commands Executed: lspci
+
