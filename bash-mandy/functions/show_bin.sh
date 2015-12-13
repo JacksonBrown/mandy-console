@@ -12,11 +12,19 @@ source ../mconsole.sh
 
 
 show_bin(){
-	printf "${YELLOW}Listing /bin and /sbin${NC} \n"
+	printf "${YELLOW}Listing /bin directory${NC}: \n"
 	echo
-	if(printf "${RED}`ls /bin; ls /sbin`${NC} \n"); then
+	if (printf "${RED}`ls /bin`${NC} \n"); then
 		echo "OK."
 	fi
+
+	echo
+
+	printf "${YELLOW}Listing /sbin directory${NC}: \n"
+	if (printf "${RED}`ls /sbin`${NC} \n"); then
+		echo "OK."
+	fi
+
 	echo
 
 	## LOG UPDATER
