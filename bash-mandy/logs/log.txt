@@ -1,2 +1,12 @@
 
 MANDY LOG MESSAGES: 
+
+Sun Dec 13 11:12:34 CST 2015
+Listed all functions in MANDY, entry "help".
+Commands Executed: echo
+
+
+Sun Dec 13 11:12:43 CST 2015
+Replace pam files via MANDY, entry "replacepam".
+Commands Executed: cp
+
