@@ -1,12 +1,13 @@
 
 MANDY LOG MESSAGES: 
 
-Sun Dec 13 11:12:34 CST 2015
-Listed all functions in MANDY, entry "help".
-Commands Executed: echo
+Entry not found: returned to console.
 
 
-Sun Dec 13 11:12:43 CST 2015
-Replace pam files via MANDY, entry "replacepam".
-Commands Executed: cp
+Mon Dec 14 12:54:45 CST 2015
+Show users in system via MANDY, entry "users".
+Commands Executed: cat /etc/passwd | grep -e "bash"
+
+
+Entry not found: returned to console.
 

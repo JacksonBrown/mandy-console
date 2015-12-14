@@ -87,6 +87,12 @@ software_scan(){
 		echo
 	fi
 
+	printf "${YELLOW}searching for theharvester${NC}: \n"
+	if(printf "${RED}** `locate \"theHarvester.py\"; locate \"harvester\"; locate \"Harvester\"`${NC} \n"); then
+		printf "${CYAN}OK. ${NC}"
+		echo
+	fi
+
 	echo
 	echo "DONE."
 	echo
