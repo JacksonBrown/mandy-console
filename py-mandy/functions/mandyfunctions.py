@@ -40,12 +40,12 @@ def showHelp():
 	print colored.cyan("network") + ": reads the /etc/network/interfaces file" #
 	print colored.cyan("bin") + ": show the bin directory " #
 	print colored.cyan("repo") + ": show the repositories in aptitude " #
-	print colored.cyan("directory") + ": display a input directory "
-	print colored.cyan("pci") + ": show all devices connected via PCI bus "
-	print colored.cyan("ram") + ": show all free ram in the system "
-	print colored.cyan("block") + ": show all block devices connected to the system "
-	print colored.cyan("exit") + ": exits Mandy Console "
-	print colored.cyan("ports") + ": show all open ports "
+	print colored.cyan("directory") + ": display a input directory " #
+	print colored.cyan("pci") + ": show all devices connected via PCI bus " #
+	print colored.cyan("ram") + ": show all free ram in the system " #
+	print colored.cyan("block") + ": show all block devices connected to the system " #
+	print colored.cyan("exit") + ": exits Mandy Console " #
+	print colored.cyan("ports") + ": show all open ports " #
 	print colored.cyan("setufw") + ": sets up the ufw firewall to configuration "
 	print colored.cyan("update") + ": updates the system "
 	print colored.cyan("removeuser") + ": removes the specified 5 users " #
@@ -565,3 +565,82 @@ def showRepositories():
 	os.system("echo \"Show bin and sbin dir via MANDY, entry \"repo\".\" >> logs/log.txt")
 	os.system("echo \"Commands Executed: cat /etc/network/interfaces\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
+
+	
+########################################################
+
+
+## SHOW DIRECTORY
+def showDir():
+	print colored.yellow("Enter a directory: ")
+	show_dir_var = raw_input()
+
+	print colored.yellow("Listing all list of directory: ")
+	subprocess.call(["ls", "-al", show_dir_var])
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Listing -al list of dir via MANDY, entry \"directory\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: ls -al\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+	
+########################################################
+
+
+## SHOW PCI CONNECTED
+def showPci():
+	print colored.yellow("Listing all devices connected via PCI: ")
+	os.system("lspci")
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"All devices connected by pci via MANDY, entry \"pci\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: lspci\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+	
+	
+########################################################
+
+
+## SHOW BLOCK DEVICES
+def showBlk():
+	print colored.yellow("Listing all block devices: ")
+	subprocess.call(["lsblk", "-l"])
+
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"All block devices listed via MANDY, entry \"block\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: lsblk -l\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## SHOW OPEN PORTS
+def showOpenPorts():
+	print colored.yellow("LIsting all open ports: ")
+	subprocess.call(["netstat", "-auntpl"])
+
+
+	print "\n IP TABLE RULES ENFORECED: \n"
+
+
+	subprocess.call(["iptables", "-L"])
+
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Show all open ports via MANDY, entry \"ports\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: netstat -auntpl\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: iptables -L\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+# YOLO

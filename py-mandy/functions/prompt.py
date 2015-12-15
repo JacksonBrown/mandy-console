@@ -2,6 +2,7 @@
 
 # IMPORTS
 import subprocess
+import os
 from clint.textui import colored
 from commandtest import *
 

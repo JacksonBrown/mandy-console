@@ -21,7 +21,7 @@ show_pci(){
 
 	echo >> $mandy_dir/logs/log.txt
 	echo "`date`" >> $mandy_dir/logs/log.txt
-	echo "Views all devices connected by PCI via MANDY, entry \"update\"." >> $mandy_dir/logs/log.txt
+	echo "Views all devices connected by PCI via MANDY, entry \"pci\"." >> $mandy_dir/logs/log.txt
 	echo "Commands Executed: lspci" >> $mandy_dir/logs/log.txt
 	echo >> $mandy_dir/logs/log.txt
 }

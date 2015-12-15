@@ -7,7 +7,7 @@ import sys
 
 
 # VARIABLES
-log_path = "../logs/log.txt"
+log_path = "logs/log.txt"
 
 def commandTest(x):
 	while x != 'exit':
@@ -34,6 +34,8 @@ def commandTest(x):
 		elif x == 'mandyhistory':
 			log_var = open(log_path)
 			print log_var.read()
+			from prompt import *
+			promptTwo()
 
 		## ELIF DIRDELETE
 		elif x == 'deldir':
@@ -113,8 +115,34 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF DIRECTORY
+		elif x == 'directory':
+			showDir()
+			from prompt import *
+			promptTwo()
+
+		## ELIF PCI
+		elif x == 'pci':
+			showPci()
+			from prompt import *
+			promptTwo()
+
+		## ELIF BLOCK
+		elif x == 'block':
+			showBlk()
+			from prompt import *
+			promptTwo()
+
+		## ELIF PORTS
+		elif x == 'ports':
+			showOpenPorts()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x
+			from prompt import *
+			promptTwo()
 
 		break
