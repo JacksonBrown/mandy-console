@@ -17,6 +17,7 @@ com_act = ": Actions being commited or information needed "
 def prompt():
 	subprocess.call(["clear"])
 	subprocess.call(["cat", "logo"])
+	print
 	print "Welcome to the Mandy Console. "
 	print "type \"help\" for a list of options. \n"
 	print "COLOR CODING: "
@@ -24,6 +25,7 @@ def prompt():
 	print colored.red("Red") + com_out 
 	print colored.cyan("Cyan") + com_inf 
 	print colored.yellow("Yellow") + com_act
+	print
 
 # END MAIN PROMPT F()
 

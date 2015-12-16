@@ -1,13 +1,2 @@
 
 MANDY LOG MESSAGES: 
-
-Entry not found: returned to console.
-
-
-Mon Dec 14 12:54:45 CST 2015
-Show users in system via MANDY, entry "users".
-Commands Executed: cat /etc/passwd | grep -e "bash"
-
-
-Entry not found: returned to console.
-

@@ -81,14 +81,12 @@ def showHelp():
 
 ## DELETE USER FUNCTION
 def deleteUser():
+	print
 	print colored.yellow('Enter usernames for deletion (there are five entries in total, type \"done\" on the extra entries): ')
 	option_one_del = raw_input()
 	option_two_del = raw_input()
 	option_three_del = raw_input()
 	option_four_del = raw_input()
-	option_five_del = raw_input()
-	print
-
 
 	# CONDITIONAL FOR OPTION VARS
 	if option_one_del == 'done':
@@ -125,7 +123,7 @@ def deleteUser():
 		print colored.yellow('removing user ' + '"' + option_five_del + '":')
 		os.system("sudo userdel " + option_five_del)
 		print "OK."
-
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -140,6 +138,7 @@ def deleteUser():
 
 ## DIRECTORY DELETE FUNCTION
 def directoryDelete():
+	print
 	print colored.yellow("Enter directory for deletion: ")
 	dir_delete_option = raw_input()
 
@@ -150,7 +149,7 @@ def directoryDelete():
 			os.system("sudo rm -r -f " + dir_delete_option)
 		else:
 			print "The directory you entered is invalid or does not exist."
-
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -173,6 +172,7 @@ def clearFunc():
 
 ## EDIT SERVICE
 def editService():
+	print
 	print colored.yellow("Enter service to be configured: ")
 	service_option_one = raw_input()
 	print colored.yellow("Enter action to be taken on " + service_option_one + ": ")
@@ -238,6 +238,8 @@ def editService():
 		else:
 			print colored.yellow("option not found")	
 
+	print
+
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
@@ -251,6 +253,7 @@ def editService():
 
 ## EDIT SSHD_CONFIG
 def editSshd():
+	print
 	print colored.yellow("Opening sshd_config file in vi: ")
 	sshd_path = "/etc/ssh/sshd_config"
 	ssh_path = "/etc/ssh/ssh_config"
@@ -263,6 +266,8 @@ def editSshd():
 			subprocess.call(["vi", ssh_path])
 		else:
 			print colored.red("returning to prompt")
+
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -277,6 +282,7 @@ def editSshd():
 
 ## EDIT LIGHTDM CONF
 def editLightdm():
+	print
 	print colored.yellow("Opening lightdm configuration file in vi: ")
 	lightdm_path_one = "/usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf"
 	lightdm_path_two = "/usr/share/lightdm/lightdm.conf"
@@ -291,6 +297,8 @@ def editLightdm():
 	else:
 		print colored.red("No lightdm config file was found ")
 
+	print
+
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
@@ -304,6 +312,7 @@ def editLightdm():
 
 ## EDIT SUDOERS FILE
 def editSudo():
+	print
 	print colored.yellow("Opening the sudoers file for editing: ")
 	subprocess.call(["export", "EDITOR=nano"])
 	os.system("sudo nano /etc/sudoers")
@@ -322,77 +331,144 @@ def editSudo():
 
 ## VIEW LOG MESSAGES, WRITE TO TEXT FILES
 def logView():
+	print
 	print colored.yellow("Listing log messages, exporting to file \"log_mesg.txt\":")
 	print
 	os.system("echo > logs/log_mesg.txt")
 	print colored.yellow("which log file? ")
-	print colored.yellow("general=/var/log/messages, boot=/var/log/boot.log, debug=/var/log/debug, auth=/var/log/auth.log, daemon=/var/log/daemon.log, kernel=/var/log/kern.log")
+	print "\ngeneral=messages or syslog, \nboot=/var/log/boot.log, \ndebug=/var/log/debug, \nauth=/var/log/auth.log, \ndaemon=/var/log/daemon.log, \nkernel=/var/log/kern.log, \nother=specify a log file \n"
 	log_view_option = raw_input()
 
 	
 	if log_view_option == 'general':
+
 		## PRINT TO CONSOLE
 		print colored.yellow("Tail of general log messages: ")
-		os.system("sudo tail -n 10 /var/log/messages")
+
+		syslog_path = "/var/log/syslog"
+		if os.path.exists(syslog_path):
+			syslog_open = open(syslog_path)
+
+		messages_path = "/var/log/messages"
+		if os.path.exists(messages_path):
+			messages_open = open(messages_path)
+
+		rsyslog_path = "/var/log/rsyslog"
+		if os.path.exists(rsyslog_path):
+			rsyslog_open = open(rsyslog_path)
+
+		if os.path.exists(syslog_path):
+			print syslog_open.read()
+		elif os.path.exists(messages_path):
+			print messages_open.read()
+		elif os.path.exists(rsyslog_path):
+			print rsyslog_open.read()
+		else:
+			print "syslog, messages, and rsyslog not found."
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"GENERAL LOG MESSAGES: \" >> logs/log_mesg.txt")
-		os.system("echo \"`sudo cat /var/log/messages`\" >> logs/log_mesg.txt")
+		os.system("sudo cat /var/log/syslog >> logs/log_mesg.txt")
 		os.system("echo >> logs/log_mesg.txt")
 
 	elif log_view_option == 'boot':
+
 		## PRINT TO CONSOLE
 		print colored.yellow("Tail of boot log messages: ")
-		os.system("sudo tail -n 10 /var/log/boot.log")
+
+		boot_path = "/var/log/boot.log"
+		if os.path.exists(boot_path):
+			boot_open = open(boot_path)
+
+		if os.path.exists(boot_path):
+			print boot_open.read()
+		else:
+			print boot_path + " not found."
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"BOOT LOG MESSAGES: \" >> logs/log_mesg.txt")
-		os.system("echo \"`sudo cat /var/log/boot`\" >> logs/log_mesg.txt")
+		os.system("sudo cat /var/log/boot.log >> logs/log_mesg.txt")
 		os.system("echo >> logs/log_mesg.txt")
 
 	elif log_view_option == 'debug':
 		## PRINT TO CONSOLE
 		print colored.yellow("Tail of debug log messages: ")
-		os.system("sudo tail -n 10 /var/log/debug")
+
+		debug_path = "/var/log/debug"
+		if os.path.exists(debug_path):
+			debug_open = open(debug_path)
+
+		if os.path.exists(debug_path):
+			print debug_open.read()
+		else:
+			print debug_path + " not found."
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"DEBUG LOG MESSAGES: \" >> logs/log_mesg.txt")
-		os.system("echo \"`sudo cat /var/log/debug`\" >> logs/log_mesg.txt")
+		os.system("sudo cat /var/log/debug >> logs/log_mesg.txt")
 		os.system("echo >> logs/log_mesg.txt")
 
 	elif log_view_option == 'auth':
 
 		## PRINT TO CONSOLE
 		print colored.yellow("Tail of auth log messages (user login/authentication): ")
-		os.system("sudo tail -n 10 /var/log/auth.log")
+
+		auth_path = "/var/log/auth.log"
+		if os.path.exists(auth_path):
+			auth_open = open(auth_path)
+
+		if os.path.exists(auth_path):
+			print auth_open.read()
+		else:
+			print auth_path + " not found."
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"AUTH LOG MESSAGES: \" >> logs/log_mesg.txt")
-		os.system("echo \"`sudo cat /var/log/auth.log`\" >> logs/log_mesg.txt")
+		os.system("sudo cat /var/log/auth.log >> logs/log_mesg.txt")
 		os.system("echo >> logs/log_mesg.txt")
 
 	elif log_view_option == 'daemon':
 		## PRINT TO CONSOLE
 		print colored.yellow("Tail of daemon log messages: ")
-		os.system("sudo tail -n 10 /var/log/daemon.log")
+
+		daemon_path = "/var/log/daemon.log"
+		if os.path.exists(daemon_path):
+			daemon_open = open(daemon_path)
+
+		if os.path.exists(daemon_path):
+			print daemon_open.read()
+		else:
+			print daemon_path + " not found."
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"DAEMON LOG MESSAGES: \" >> logs/log_mesg.txt")
-		os.system("echo \"`sudo cat /var/log/daemon.log`\" >> logs/log_mesg.txt")
+		os.system("sudo cat /var/log/daemon.log >> logs/log_mesg.txt")
 		os.system("echo >> logs/log_mesg.txt")
 
 	elif log_view_option == 'kernel':
 		## PRINT TO CONSOLE
 		print colored.yellow("Tail of kernel log messages: ")
-		os.system("sudo tail -n 10 /var/log/kern.log")
+
+		kernel_path = "/var/log/kern.log"
+		if os.path.exists(kernel_path):
+			kernel_open = open(kernel_path)
+
+		if os.path.exists(kernel_path):
+			print kernel_open.read()
+		else:
+			print kernel_path + " not found."
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"KERNEL LOG MESSAGES: \" >> logs/log_mesg.txt")
-		os.system("echo \"`sudo cat /var/log/kern.log`\" >> logs/log_mesg.txt")
+		os.system("sudo cat /var/log/kern.log >> logs/log_mesg.txt")
 		os.system("echo >> logs/log_mesg.txt")
 
-	else:
-		print colored.red("log file specified not found.")
+	elif log_view_option == 'other':
+		print colored.red("enter log file name: ")
+		log_view_else = raw_input()
+
+		lvp = "/var/log/" + log_view_else
+		print lve.read()
 
 	## TEST TO OPEN FILE
 	print colored.yellow("View the file \"log_mesg.txt\" file now (y/n)?")
@@ -402,6 +478,8 @@ def logView():
 		os.system("gedit logs/log_mesg.txt")
 	else:
 		print colored.red("option other than y specified, closing.")
+
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -416,37 +494,36 @@ def logView():
 
 ## SHOW SYS INFO
 def showSysInfo():
+	print
 	print colored.yellow("Listing system info: ")
 	print
 
-	print "User: "
+	print colored.red("User: ")
 	print os.environ["USER"]
 	print
 
-	print "Architecture: "
+	print colored.red("Architecture: ")
 	os.system("uname -m")
 	print
 
-	print "System: "
+	print colored.red("System: ")
 	subprocess.call(["uname"])
 	print
 
-	print "Uptime: "
+	print colored.red("Uptime: ")
 	subprocess.call(["uptime"])
 	print
 
-	print "Kernel Name: "
+	print colored.red("Kernel Name: ")
 	os.system("uname -s")
 	print
 
-	print "Network Host: "
+	print colored.red("Network Host: ")
 	os.system("uname -n")
 	print
 
-	print "Operating System: "
+	print colored.red("Operating System: ")
 	os.system("uname -o")
-	print
-
 	print
 
 	##LOG UPDATER
@@ -462,6 +539,7 @@ def showSysInfo():
 
 ## DISPLAY USERS
 def showUsers():
+	print
 	passwd_var = "/etc/passwd"
 	print colored.yellow("Listing users in system with BASH shell: ")
 
@@ -490,6 +568,8 @@ def showUsers():
 		if "csh" in line:
 			sys.stdout.write(line)
 
+	print
+
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
@@ -503,6 +583,7 @@ def showUsers():
 
 ## READ NETWORK INTERFACE
 def showInterface():
+	print
 	print colored.yellow("Listing network interface: ")
 	os.system("cat /etc/network/interfaces")
 
@@ -510,6 +591,8 @@ def showInterface():
 	inter_opt = raw_input()
 	if inter_opt == 'y':
 		os.system("gedit /etc/network/interfaces")
+
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -524,7 +607,8 @@ def showInterface():
 
 ## SHOW BIN FILES
 def showBin():
-	print colored.yellow("Listing/ /bin and /sbin: ") + "\n"
+	print
+	print colored.yellow("Listing /bin and /sbin: ") + "\n"
 
 	print colored.red("/bin directory: ")
 	subprocess.call(["ls", "/bin"])
@@ -533,6 +617,8 @@ def showBin():
 
 	print colored.red("/sbin directory: ")
 	subprocess.call(["ls", "/sbin"])
+
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -547,18 +633,25 @@ def showBin():
 
 ## SHOW REPOSITORIES
 def showRepositories():
+	print
 	print colored.yellow("Listing repositories: ") + "\n"
 
 	sources_list = "/etc/apt/sources.list"
 	if os.path.exists(sources_list):
 		sources_open = open(sources_list)
 		print sources_open.read()
+	else:
+		print source_list + " not found."
 
 	sources_oprl = "/etc/apt/sources.list.d/official-package-repositories.list"
 	if os.path.exists(sources_oprl):
 		sources_oprl_open = open(sources_oprl)
 		print sources_oprl_open.read()
+	else:
+		print sources_oprl + " not found."
 	 
+	print
+
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
@@ -572,11 +665,14 @@ def showRepositories():
 
 ## SHOW DIRECTORY
 def showDir():
+	print
 	print colored.yellow("Enter a directory: ")
 	show_dir_var = raw_input()
 
 	print colored.yellow("Listing all list of directory: ")
 	subprocess.call(["ls", "-al", show_dir_var])
+
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -591,8 +687,11 @@ def showDir():
 
 ## SHOW PCI CONNECTED
 def showPci():
+	print
 	print colored.yellow("Listing all devices connected via PCI: ")
 	os.system("lspci")
+
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -607,9 +706,11 @@ def showPci():
 
 ## SHOW BLOCK DEVICES
 def showBlk():
+	print
 	print colored.yellow("Listing all block devices: ")
 	subprocess.call(["lsblk", "-l"])
 
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -624,15 +725,20 @@ def showBlk():
 
 ## SHOW OPEN PORTS
 def showOpenPorts():
+	print
 	print colored.yellow("LIsting all open ports: ")
 	subprocess.call(["netstat", "-auntpl"])
 
+	print colored.yellow("Show IPTABLES enforeced rules (y/n)?")
+	iptb_opt = raw_input()
 
-	print "\n IP TABLE RULES ENFORECED: \n"
+	if iptb_opt == 'y':
+		print "\n IP TABLE RULES ENFORECED: \n"
+		subprocess.call(["iptables", "-L"])
+	else:
+		print "option other than \"y\" specified."
 
-
-	subprocess.call(["iptables", "-L"])
-
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
