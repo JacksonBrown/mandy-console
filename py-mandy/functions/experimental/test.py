@@ -25,23 +25,4 @@ def execute_cmd(cmd_string):
 
 x = 0
 
-while x!= ord(`4`):
-	screen = curses.initscr()
-	screen.clear()
-	screen.border(0)
-	screen.addstr(2, 2, "Please Enter an option")
-	screen.addstr(4, 4, "1 - Add User")
-	screen.addstr(4, 4, "2 - Restart Apache")
-	screen.addstr(4, 4, "1 - Show Disk Space")
-	screen.addstr(4, 4, "1 - Exit")
-
-	x = screen.getch()
-
-	if x == ord(`1`):
-		print "okey."
-	elif x == ord(`2`):
-		print "K."
-	elif x == ord(`3`)
-		print "Ight."
-
 curses.endwin()

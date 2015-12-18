@@ -87,6 +87,7 @@ def deleteUser():
 	option_two_del = raw_input()
 	option_three_del = raw_input()
 	option_four_del = raw_input()
+	option_five_del = raw_input()
 
 	# CONDITIONAL FOR OPTION VARS
 	if option_one_del == 'done':
@@ -749,4 +750,112 @@ def showOpenPorts():
 	os.system("echo >> logs/log.txt")
 
 
+########################################################
+
+## SET UFW FUNCTION
+def setUfwEnable():
+	print
+	print colored.yellow("Enabling UFW firewall: ")
+	subprocess.call(["ufw", "enable"])
+
+	print colored.cyan("UFW version used: ")
+	subprocess.call(["ufw", "--version"])
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Enable UFW firewall via MANDY, entry \"setufw\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: ufw [enable/deny/default/allow/x]\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+def setUfwRuleset():
+	print
+	print colored.yellow("Setting defualt ruleset to deny: ")
+	subprocess.call(["ufw", "default", "deny"])
+	print "OK."
+
+def setUfwDenyIn():
+	print
+	print colored.yellow("Enter service(s) to set a deny ruleset in: ")
+	service_deny = raw_input("> ")
+
+	if service_deny != "":
+		print colored.yellow("Setting deny ruleset in " + service_deny)
+		subprocess.call(["ufw", "deny", "in", service_deny])
+
+	
+def setAllowPort():
+	print
+	print colored.yellow("Enter port(s) to allow in: ")
+	port_allow = raw_input()
+
+	if port_allow != "":
+		print colored.yellow("Setting allow in port " + port_allow)
+		subprocess.call(["ufw", "allow", "in", port_allow])
+
+
+########################################################
+
+
+## UPDATEME
+def updateOs():
+	print
+	print colored.yellow("The updates will automatically be installed, continue(y/n)? ")
+	option_update = raw_input()
+
+	print colored.cyan("Fedora or Debian distro (1/2)?")
+	option_fod = raw_input()
+
+	if option_update == 'y':
+
+		## FEDORA IF TEST
+		if option_fod == "1":
+			print colored.yellow("Running update: ")
+			subprocess.call([
+					"sudo", 
+					"yum", 
+					"-y", 
+					"update"
+					])
+
+		## DEBIAN IF TEST
+		elif option_fod == "2":
+			print colored.yellow("Running update: ")
+			subprocess.call([
+					"sudo", 
+					"apt-get", 
+					"--yes", 
+					"--force-yes",
+					"upgrade"
+					])
+		else:
+			print colored.red("Invalid option specified. ")
+
+
+	print colored.yellow("Would you like to install crakclib (y/n)? ")
+	ins_cracklib_opt = raw_input()
+
+	if ins_cracklib_opt == "y":
+		subprocess.call([
+				"sudo", 
+				"apt-get", 
+				"--yes", 
+				"--force-yes", 
+				"install", 
+				"libpam-cracklib"
+				])
+	else:
+		print colored.red("Option other than \"y\" specified. ")
+
+	print colored.yellow("Opening update manager: ")
+	subprocess.call(["update-manager"])
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Updated system via MANDY, entry \"update\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: upgrade/install/update-manager\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
 # YOLO
+

@@ -139,6 +139,21 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF SETUFW
+		elif x == 'setufw':
+			setUfwEnable()
+			setUfwRuleset()
+			setUfwDenyIn()
+			setAllowPort()
+			from prompt import *
+			promptTwo()
+
+		## ELIF UPDATE
+		elif x == 'update':
+			updateOs()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

@@ -6,7 +6,6 @@ from Tkinter import *
 import Tkinter as tk
 import tkMessageBox
 import os
-from mandyfunctions import *
 import Image 
 import ImageTk
 
