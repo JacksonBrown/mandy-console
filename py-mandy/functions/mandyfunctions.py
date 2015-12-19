@@ -66,6 +66,7 @@ def showHelp():
 	print colored.cyan("editlightdm") + ": edit lightdm configuration file " #
 	print colored.cyan("removereadablehome") + ": remove world readable perms on home dir files "
 	print colored.cyan("scan") + ": runs a scan on an input network "
+	print colored.cyan("prompt") + ": displays the prompt at load up "
 	print
 	
 	##LOG UPDATER
@@ -787,7 +788,7 @@ def setUfwDenyIn():
 def setAllowPort():
 	print
 	print colored.yellow("Enter port(s) to allow in: ")
-	port_allow = raw_input()
+	port_allow = raw_input("> ")
 
 	if port_allow != "":
 		print colored.yellow("Setting allow in port " + port_allow)
@@ -803,10 +804,11 @@ def updateOs():
 	print colored.yellow("The updates will automatically be installed, continue(y/n)? ")
 	option_update = raw_input()
 
-	print colored.cyan("Fedora or Debian distro (1/2)?")
-	option_fod = raw_input()
-
 	if option_update == 'y':
+
+		print colored.cyan("Fedora or Debian distro (1/2)?")
+		option_fod = raw_input()
+
 
 		## FEDORA IF TEST
 		if option_fod == "1":
@@ -830,6 +832,8 @@ def updateOs():
 					])
 		else:
 			print colored.red("Invalid option specified. ")
+	else:
+		print colored.red("Option other than \"y\" specified. ")
 
 
 	print colored.yellow("Would you like to install crakclib (y/n)? ")

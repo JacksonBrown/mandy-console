@@ -1,11 +1,1 @@
 
-
-Fri Dec 18 14:07:21 CST 2015
-List all commands in MANDY, entry help.
-Commands Executed: none
-
-
-Fri Dec 18 14:14:23 CST 2015
-Updated system via MANDY, entry update.
-Commands Executed: upgrade/install/update-manager
-

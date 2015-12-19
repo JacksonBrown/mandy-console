@@ -154,6 +154,18 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF PROMPT
+		elif x == 'prompt':
+			from prompt import *
+			prompt()
+			promptTwo()
+
+		## ELIF LS
+		elif x == 'ls':
+			os.system("ls")
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

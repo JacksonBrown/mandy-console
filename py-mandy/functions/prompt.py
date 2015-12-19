@@ -8,7 +8,7 @@ from commandtest import *
 
 # TEXT VARIABLES
 com_inp = ": Command input "
-com_out = ": Output of command being run "
+com_out = ": Error/Alert output "
 com_inf = ": Information from devs "
 com_act = ": Actions being commited or information needed "
 
@@ -18,7 +18,7 @@ def prompt():
 	subprocess.call(["clear"])
 	subprocess.call(["cat", "logo"])
 	print
-	print "Welcome to the Mandy Console. "
+	print "Created by Jackson Brown "
 	print "type \"help\" for a list of options. \n"
 	print "COLOR CODING: "
 	print colored.green("Green") + com_inp 
