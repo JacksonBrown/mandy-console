@@ -1,1 +1,11 @@
 
+
+Tue Dec 22 14:45:19 CST 2015
+List all commands in MANDY, entry help.
+Commands Executed: none
+
+
+Tue Dec 22 14:45:21 CST 2015
+List all free RAM via MANDY, entry ram.
+Commands Executed: free
+

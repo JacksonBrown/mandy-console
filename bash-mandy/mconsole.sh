@@ -30,6 +30,7 @@ echo > $mandy_dir/logs/show_directory_output.txt
 echo > $mandy_dir/logs/log_mesg.txt
 echo > $mandy_dir/logs/show_process.txt
 echo > $mandy_dir/logs/scan_out.txt
+echo > $mandy_dir/logs/cron_files.txt
 echo "MANDY LOG MESSAGES: " >> $mandy_dir/logs/log.txt
 
 
