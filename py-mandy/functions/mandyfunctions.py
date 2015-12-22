@@ -366,7 +366,7 @@ def logView():
 		elif os.path.exists(rsyslog_path):
 			print rsyslog_open.read()
 		else:
-			print "syslog, messages, and rsyslog not found."
+			print colored.red("syslog, messages, and rsyslog not found.")
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"GENERAL LOG MESSAGES: \" >> logs/log_mesg.txt")
@@ -385,7 +385,7 @@ def logView():
 		if os.path.exists(boot_path):
 			print boot_open.read()
 		else:
-			print boot_path + " not found."
+			print colored.red(boot_path + " not found.")
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"BOOT LOG MESSAGES: \" >> logs/log_mesg.txt")
@@ -403,7 +403,7 @@ def logView():
 		if os.path.exists(debug_path):
 			print debug_open.read()
 		else:
-			print debug_path + " not found."
+			print colored.red(debug_path + " not found.")
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"DEBUG LOG MESSAGES: \" >> logs/log_mesg.txt")
@@ -422,7 +422,7 @@ def logView():
 		if os.path.exists(auth_path):
 			print auth_open.read()
 		else:
-			print auth_path + " not found."
+			print colored.red(auth_path + " not found.")
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"AUTH LOG MESSAGES: \" >> logs/log_mesg.txt")
@@ -440,7 +440,7 @@ def logView():
 		if os.path.exists(daemon_path):
 			print daemon_open.read()
 		else:
-			print daemon_path + " not found."
+			print colored.red(daemon_path + " not found.")
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"DAEMON LOG MESSAGES: \" >> logs/log_mesg.txt")
@@ -458,7 +458,7 @@ def logView():
 		if os.path.exists(kernel_path):
 			print kernel_open.read()
 		else:
-			print kernel_path + " not found."
+			print colored.red(kernel_path + " not found.")
 
 		## PRINT TO TEXT FILE
 		os.system("echo \"KERNEL LOG MESSAGES: \" >> logs/log_mesg.txt")
@@ -466,11 +466,13 @@ def logView():
 		os.system("echo >> logs/log_mesg.txt")
 
 	elif log_view_option == 'other':
-		print colored.red("enter log file name: ")
+		print colored.red("enter log file name (not path): ")
 		log_view_else = raw_input()
 
 		lvp = "/var/log/" + log_view_else
 		print lve.read()
+	else:
+		print colored.red("Option not found.")
 
 	## TEST TO OPEN FILE
 	print colored.yellow("View the file \"log_mesg.txt\" file now (y/n)?")
@@ -551,6 +553,8 @@ def showUsers():
 	for line in open(passwd_var):
 		if "bash" in line:
 			sys.stdout.write(line)
+		else: 
+			print colored.red("No Bash shell users found.")
 
 	print colored.yellow("Listing users in system with KORN shell: ")
 
@@ -560,6 +564,8 @@ def showUsers():
 	for line in open(passwd_var):
 		if "ksh" in line:
 			sys.stdout.write(line)
+		else:
+			print colored.red("No Korn shell users found.")
 
 	print colored.yellow("Listing users in system with C shell: ")
 	
@@ -569,6 +575,8 @@ def showUsers():
 	for line in open(passwd_var):
 		if "csh" in line:
 			sys.stdout.write(line)
+		else:
+			print colored.red("No C shell users found.")
 
 	print
 
@@ -593,6 +601,8 @@ def showInterface():
 	inter_opt = raw_input()
 	if inter_opt == 'y':
 		os.system("gedit /etc/network/interfaces")
+	else:
+		print colored.red("Option other than \"y\" specified.")
 
 	print
 
@@ -643,14 +653,14 @@ def showRepositories():
 		sources_open = open(sources_list)
 		print sources_open.read()
 	else:
-		print source_list + " not found."
+		print colored.red(source_list + " not found.")
 
 	sources_oprl = "/etc/apt/sources.list.d/official-package-repositories.list"
 	if os.path.exists(sources_oprl):
 		sources_oprl_open = open(sources_oprl)
 		print sources_oprl_open.read()
 	else:
-		print sources_oprl + " not found."
+		print colored.red(sources_oprl + " not found.")
 	 
 	print
 
@@ -738,7 +748,7 @@ def showOpenPorts():
 		print "\n IP TABLE RULES ENFORECED: \n"
 		subprocess.call(["iptables", "-L"])
 	else:
-		print "option other than \"y\" specified."
+		print colored.red("option other than \"y\" specified.")
 
 	print
 
