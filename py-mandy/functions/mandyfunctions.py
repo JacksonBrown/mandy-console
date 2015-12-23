@@ -553,8 +553,6 @@ def showUsers():
 	for line in open(passwd_var):
 		if "bash" in line:
 			sys.stdout.write(line)
-		else: 
-			print colored.red("No Bash shell users found.")
 
 	print colored.yellow("Listing users in system with KORN shell: ")
 
@@ -564,8 +562,6 @@ def showUsers():
 	for line in open(passwd_var):
 		if "ksh" in line:
 			sys.stdout.write(line)
-		else:
-			print colored.red("No Korn shell users found.")
 
 	print colored.yellow("Listing users in system with C shell: ")
 	
@@ -575,8 +571,6 @@ def showUsers():
 	for line in open(passwd_var):
 		if "csh" in line:
 			sys.stdout.write(line)
-		else:
-			print colored.red("No C shell users found.")
 
 	print
 
