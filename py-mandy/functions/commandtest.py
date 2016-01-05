@@ -166,6 +166,18 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF SPACE
+		elif x == 'space':
+			showSpace()
+			from prompt import *
+			promptTwo()
+
+		## ELIF REMOVEAGE
+		elif x == 'removeage':
+			removeAge()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

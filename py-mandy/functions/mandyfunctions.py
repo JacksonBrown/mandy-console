@@ -34,7 +34,7 @@ def showFree():
 ## SHOW HELP FUNCTION
 def showHelp():
 	print
-	print "List of available options: ";
+	print colored.yellow("Listing available options: ");
 	print colored.cyan("show") + ": displays the system info " #
 	print colored.cyan("users") + ": displays the system users " #
 	print colored.cyan("network") + ": reads the /etc/network/interfaces file" #
@@ -46,11 +46,11 @@ def showHelp():
 	print colored.cyan("block") + ": show all block devices connected to the system " #
 	print colored.cyan("exit") + ": exits Mandy Console " #
 	print colored.cyan("ports") + ": show all open ports " #
-	print colored.cyan("setufw") + ": sets up the ufw firewall to configuration "
-	print colored.cyan("update") + ": updates the system "
+	print colored.cyan("setufw") + ": sets up the ufw firewall to configuration " #
+	print colored.cyan("update") + ": updates the system " #
 	print colored.cyan("removeuser") + ": removes the specified 5 users " #
-	print colored.cyan("removeage") + ": removes and replaces the chage of 5 users "
-	print colored.cyan("space") + ": show free disk space in the system "
+	print colored.cyan("removeage") + ": removes and replaces the chage of 5 users " #
+	print colored.cyan("space") + ": show free disk space in the system " #
 	print colored.cyan("editsudo") + ": edits the /etc/sudoers file " #
 	print colored.cyan("groupsee") + ": view all of the users in a specified group "
 	print colored.cyan("changepass") + ": change password of specified 5 users "
@@ -864,6 +864,84 @@ def updateOs():
 	os.system("echo \"Updated system via MANDY, entry \"update\".\" >> logs/log.txt")
 	os.system("echo \"Commands Executed: upgrade/install/update-manager\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## SHOW DISK SPACE
+def showSpace():
+	print
+	print colored.yellow("Listing free disk space: ")
+	subprocess.call(["df", "-h"])
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Listed free disk space via MANDY, entry \"space\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: df -h\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## DELETE USER FUNCTION
+def removeAge():
+	print
+	print colored.yellow('Enter usernames for chage (there are five entries in total, type \"done\" on the extra entries): ')
+	option_one_age = raw_input()
+	option_two_age = raw_input()
+	option_three_age = raw_input()
+	option_four_age = raw_input()
+	option_five_age = raw_input()
+
+	# CONDITIONAL FOR OPTION VARS
+	if option_one_age == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user age ' + '"' + option_one_age + '":')
+		os.system("sudo chage -M 30 " + option_one_age)
+		print "OK."
+
+	if option_two_age == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user age ' + '"' + option_two_age + '":')
+		os.system("sudo chage -M 30 " + option_two_age)
+		print "OK."
+
+	if option_three_age == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user age ' + '"' + option_three_age + '":')
+		os.system("sudo chage -M 30 " + option_three_age)
+		print "OK."
+
+	if option_four_age == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user age ' + '"' + option_four_age + '":')
+		os.system("sudo chage -M 30 " + option_four_age)
+		print "OK."
+
+	if option_five_age == 'done':
+		print "0: option one not set, skipping.";
+	else:
+		print colored.yellow('removing user age ' + '"' + option_five_age + '":')
+		os.system("sudo chage -M 30 " + option_five_age)
+		print "OK."
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Remove age of specified users in MANDY, entry \"removeage\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo chage -M 30 USERVAR\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
 
 # YOLO
 
