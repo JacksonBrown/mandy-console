@@ -1,1 +1,32 @@
 
+
+Tue Jan 5 13:54:17 CST 2016
+List all commands in MANDY, entry help.
+Commands Executed: none
+
+
+Tue Jan 5 13:54:20 CST 2016
+List all commands in MANDY, entry help.
+Commands Executed: none
+
+
+Tue Jan 5 13:54:24 CST 2016
+All block devices listed via MANDY, entry block.
+Commands Executed: lsblk -l
+
+
+Tue Jan 5 13:54:29 CST 2016
+Show all open ports via MANDY, entry ports.
+Commands Executed: netstat -auntpl
+Commands Executed: iptables -L
+
+
+Tue Jan 5 13:54:31 CST 2016
+List all commands in MANDY, entry help.
+Commands Executed: none
+
+
+Tue Jan 5 13:54:34 CST 2016
+List all free RAM via MANDY, entry ram.
+Commands Executed: free
+

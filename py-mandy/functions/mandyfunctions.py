@@ -15,7 +15,7 @@ from array import *
 ## SHOW FREE RAM FUNCTION
 def showFree():
 	print
-	print colored.yellow("Listing free ram in the system. \n")
+	print colored.yellow("Listing free ram in the system: ")
 	subprocess.call(["free", "-h"])
 	print
 
