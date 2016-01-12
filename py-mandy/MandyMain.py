@@ -1,13 +1,16 @@
 #!/usr/bin/python
 
-
 # IMPORTS
 import os
 import subprocess
 import sys
-sys.path.insert(0, 'functions/')
+
+# CHANGE TO MANDY DIRECTORY
+mandy_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(mandy_dir)
 
 ## FILE IMPORTS
+sys.path.insert(0, 'functions/')
 from prompt import *
 
 

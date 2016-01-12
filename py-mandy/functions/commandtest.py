@@ -178,6 +178,13 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF GROUPSEE
+		elif x == 'groupsee':
+			showGroupUsersPrompt()
+			showGroupUsers()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

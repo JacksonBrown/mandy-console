@@ -52,8 +52,8 @@ def showHelp():
 	print colored.cyan("removeage") + ": removes and replaces the chage of 5 users " #
 	print colored.cyan("space") + ": show free disk space in the system " #
 	print colored.cyan("editsudo") + ": edits the /etc/sudoers file " #
-	print colored.cyan("groupsee") + ": view all of the users in a specified group "
-	print colored.cyan("changepass") + ": change password of specified 5 users "
+	print colored.cyan("groupsee") + ": view all of the users in a specified group " #
+	print colored.cyan("changepass") + ": change password of specified 5 users " 
 	print colored.cyan("editsudoremove") + ": remove specified 5 users from the sudo group "
 	print colored.cyan("logsee") + ": view the tail of log files and create log_mesg.txt " #
 	print colored.cyan("deldir") + ": delete a input directory " #
@@ -942,6 +942,40 @@ def removeAge():
 	os.system("echo >> logs/log.txt")
 
 
+########################################################
 
+
+## SHOW GROUP USERS FUNCTION
+def showGroupUsersPrompt():
+	print colored.yellow("Enter the group to be viewed (type \"a\" to view all groups with all users): ")
+
+def showGroupUsers():
+	option_group = raw_input()
+	print colored.yellow("Listing all users in the " + option_group + " group: ")
+
+	if option_group == "a":
+		all_groups_dir = "/etc/group"
+		all_groups = open(all_groups_dir)
+		print all_groups.read()
+	else:
+		all_groups_dir_second = "/etc/group"
+		for line in open(all_groups_dir_second):
+			if option_group in line:
+				sys.stdout.write(line)
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"View specified group in MANDY, entry \"removeage\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: none\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+
+
+		
 # YOLO
 
