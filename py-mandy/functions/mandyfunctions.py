@@ -951,7 +951,7 @@ def showGroupUsersPrompt():
 
 def showGroupUsers():
 	option_group = raw_input()
-	print colored.yellow("Listing all users in the " + option_group + " group: ")
+	print colored.yellow("Listing all matchies in the " + option_group + " group: ")
 
 	if option_group == "a":
 		all_groups_dir = "/etc/group"

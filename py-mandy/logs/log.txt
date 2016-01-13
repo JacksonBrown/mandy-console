@@ -1,6 +1,27 @@
 
 
-Tue Jan 12 12:53:19 CST 2016
+Tue Jan 12 22:03:58 CST 2016
+List all commands in MANDY, entry help.
+Commands Executed: none
+
+
+Tue Jan 12 22:04:07 CST 2016
+Show all open ports via MANDY, entry ports.
+Commands Executed: netstat -auntpl
+Commands Executed: iptables -L
+
+
+Tue Jan 12 22:04:16 CST 2016
+Enable UFW firewall via MANDY, entry setufw.
+Commands Executed: ufw [enable/deny/default/allow/x]
+
+
+Tue Jan 12 22:04:31 CST 2016
+List all commands in MANDY, entry help.
+Commands Executed: none
+
+
+Tue Jan 12 22:04:39 CST 2016
 View specified group in MANDY, entry removeage.
 Commands Executed: none
 
