@@ -185,6 +185,13 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF CHANGEPASS
+		elif x == 'changepass':
+			promptPass()
+			conditionalTestPass()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

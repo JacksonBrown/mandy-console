@@ -1,2 +1,12 @@
 
 MANDY LOG MESSAGES: 
+
+Wed Jan 20 13:01:32 CST 2016
+Listed all functions in MANDY, entry "help".
+Commands Executed: echo
+
+
+Wed Jan 20 13:01:49 CST 2016
+Changed user passwords via MANDY, entry "changepass".
+Commands Executed: sudo passwd USER_VAR
+

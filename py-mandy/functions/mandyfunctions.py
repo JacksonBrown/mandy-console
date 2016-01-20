@@ -53,8 +53,8 @@ def showHelp():
 	print colored.cyan("space") + ": show free disk space in the system " #
 	print colored.cyan("editsudo") + ": edits the /etc/sudoers file " #
 	print colored.cyan("groupsee") + ": view all of the users in a specified group " #
-	print colored.cyan("changepass") + ": change password of specified 5 users " 
-	print colored.cyan("editsudoremove") + ": remove specified 5 users from the sudo group "
+	print colored.cyan("changepass") + ": change password of specified 5 users " # 
+	print colored.cyan("editsudoremove") + ": remove specified 5 users from the sudo group " #
 	print colored.cyan("logsee") + ": view the tail of log files and create log_mesg.txt " #
 	print colored.cyan("deldir") + ": delete a input directory " #
 	print colored.cyan("cron") + ": view all the cron files in /etc/ "
@@ -974,6 +974,57 @@ def showGroupUsers():
 ########################################################
 
 
+## CHANGE PASS
+def promptPass():
+	print colored.yellow("Enter users for password change (fine entries total, type \"done\" if an entry is blank): ")
+
+
+def conditionalTestPass():
+
+	option_one_pass = raw_input()
+	option_two_pass = raw_input()
+	option_three_pass = raw_input()
+	option_four_pass = raw_input()
+	option_five_pass = raw_input()
+
+	if option_one_pass == 'done' or option_one_pass == '':
+		print colored.red("0: option skipped.")
+	else:
+		print colored.yellow("changing " + option_one_pass + " password: ")
+		subprocess.call(["sudo", "passwd", option_one_pass])
+
+	if option_two_pass == 'done' or option_two_pass == '':
+		print colored.red("1: option skipped.")
+	else:
+		print colored.yellow("changing " + option_two_pass + " password: ")
+		subprocess.call(["sudo", "passwd", option_two_pass])
+
+	if option_three_pass == 'done' or option_three_pass == '':
+		print colored.red("2: option skipped.")
+	else:
+		print colored.yellow("changing " + option_three_pass + " password: ")
+		subprocess.call(["sudo", "passwd", option_three_pass])
+
+	if option_four_pass == 'done' or option_four_pass == '':
+		print colored.red("3: option skipped.")
+	else:
+		print colored.yellow("changing " + option_four_pass + " password: ")
+		subprocess.call(["sudo", "passwd", option_four_pass])
+
+	if option_five_pass == 'done' or option_five_pass == '':
+		print colored.red("4: option skipped.")
+	else:
+		print colored.yellow("changing " + option_five_pass + " password: ")
+		subprocess.call(["sudo", "passwd", option_five_pass])
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Change passwords in MANDY, entry \"changepass\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo passwd PWOPT\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+########################################################
 
 
 		
