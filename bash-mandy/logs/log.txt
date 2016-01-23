@@ -1,2 +1,54 @@
 
 MANDY LOG MESSAGES: 
+
+Sat Jan 23 12:34:25 CST 2016
+Listed all functions in MANDY, entry "help".
+Commands Executed: echo
+
+
+Sat Jan 23 12:35:41 CST 2016
+Enables and configures ufw firewall via MANDY, entry "setufw".
+Commands Executed: sudo ufw enable
+Commands Executed: sudo ufw default deny
+Commands Executed: sudo ufw deny in http
+Commands Executed: sudo ufw deny in smtp
+Commands Executed: sudo ufw allow in 80
+Commands Executed: sudo ufw allow in 22
+
+
+Entry not found: returned to console.
+
+
+Sat Jan 23 12:36:19 CST 2016
+Open lightdm configuration files via MANDY, entry "disableubuntuguest".
+Commands Executed: sudo gedit DIR/FILE
+
+Sat Jan 23 12:36:21 CST 2016
+Listed all functions in MANDY, entry "help".
+Commands Executed: echo
+
+
+Sat Jan 23 12:36:33 CST 2016
+List all free RAM via MANDY, entry "ram".
+Commands Executed: free
+
+
+Sat Jan 23 12:36:37 CST 2016
+Views free disk space via MANDY, entry "space".
+Commands Executed: df
+
+
+Sat Jan 23 12:36:50 CST 2016
+List all block devices via MANDY, entry "block".
+Commands Executed: lsblk -l
+
+
+Sat Jan 23 12:40:40 CST 2016
+Listed all functions in MANDY, entry "help".
+Commands Executed: echo
+
+
+Sat Jan 23 12:40:55 CST 2016
+Show users in system via MANDY, entry "users".
+Commands Executed: cat /etc/passwd | grep -e "bash"
+

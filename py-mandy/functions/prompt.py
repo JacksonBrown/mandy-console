@@ -16,7 +16,7 @@ com_act = ": Actions being commited or information needed "
 
 def prompt():
 	subprocess.call(["clear"])
-	subprocess.call(["cat", "logo"])
+	subprocess.call(["cat", "logo-blue"])
 	print
 	print "Created by Jackson Brown "
 	print "type \"help\" for a list of options. \n"
