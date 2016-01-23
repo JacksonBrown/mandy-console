@@ -57,11 +57,11 @@ def showHelp():
 	print colored.cyan("editsudoremove") + ": remove specified 5 users from the sudo group " #
 	print colored.cyan("logsee") + ": view the tail of log files and create log_mesg.txt " #
 	print colored.cyan("deldir") + ": delete a input directory " #
-	print colored.cyan("cron") + ": view all the cron files in /etc/ "
+	print colored.cyan("cron") + ": view all the cron files in /etc/ " #
 	print colored.cyan("editservice") + ": start, stop, or restart a service " #
-	print colored.cyan("process") + ": show processes on the system "
-	print colored.cyan("services") + ": show services running on the system "
-	print colored.cyan("shells") +": show shells on the system "
+	print colored.cyan("process") + ": show processes on the system " #
+	print colored.cyan("services") + ": show services running on the system " #
+	print colored.cyan("shells") +": show shells on the system " #
 	print colored.cyan("editssh") + ": edit the sshd_config file " #
 	print colored.cyan("editlightdm") + ": edit lightdm configuration file " #
 	print colored.cyan("removereadablehome") + ": remove world readable perms on home dir files "
@@ -947,11 +947,11 @@ def removeAge():
 
 ## SHOW GROUP USERS FUNCTION
 def showGroupUsersPrompt():
-	print colored.yellow("Enter the group to be viewed (type \"a\" to view all groups with all users): ")
+	print colored.yellow("\nEnter the group to be viewed (type \"a\" to view all groups with all users): ")
 
 def showGroupUsers():
 	option_group = raw_input()
-	print colored.yellow("Listing all matchies in the " + option_group + " group: ")
+	print colored.yellow("Listing all matches in the " + option_group + " group: ")
 
 	if option_group == "a":
 		all_groups_dir = "/etc/group"
@@ -962,6 +962,7 @@ def showGroupUsers():
 		for line in open(all_groups_dir_second):
 			if option_group in line:
 				sys.stdout.write(line)
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -976,7 +977,7 @@ def showGroupUsers():
 
 ## CHANGE PASS
 def promptPass():
-	print colored.yellow("Enter users for password change (fine entries total, type \"done\" if an entry is blank): ")
+	print colored.yellow("\nEnter users for password change (fine entries total, type \"done\" if an entry is blank): ")
 
 
 def conditionalTestPass():
@@ -1016,6 +1017,7 @@ def conditionalTestPass():
 	else:
 		print colored.yellow("changing " + option_five_pass + " password: ")
 		subprocess.call(["sudo", "passwd", option_five_pass])
+	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -1024,12 +1026,13 @@ def conditionalTestPass():
 	os.system("echo \"Commands Executed: sudo passwd PWOPT\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 
+
 ########################################################
 
 
 ## EDIT SUDO REMOVE
 def promptSudoGroupRemove():
-	print colored.yellow("Enter users for sudo group remove (five entries total, type \"done\" if an entry is blank): ")
+	print colored.yellow("\nEnter users for sudo group remove (five entries total, type \"done\" if an entry is blank): ")
 
 def conditionalTestSudoGroup():
 	option_one_sudoers = raw_input()
@@ -1067,7 +1070,110 @@ def conditionalTestSudoGroup():
 	else:
 		print colored.yellow("removing " + option_five_sudoers + " from sudo group: " )
 		subprocess.call(["sudo", "deluser", option_five_sudoers, "sudo"])
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Remove sudoers in MANDY, entry \"editsudoremove\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo deluser OPT sudo\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+########################################################
 
 
+## SHOW CRON
+def showCron():
+	print colored.yellow("\nListing cron files in /etc/: ")
+	os.system("ls -l /etc/cron.*")
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Show cron files in MANDY, entry \"cron\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: ls -l CPV\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+########################################################
+
+
+## DEL DIR
+def dirDelete():
+	print colored.yellow("\nEnter directory for deletion: ")
+	option_dir = raw_input()
+
+	if os.path.exists(option_dir):
+		subprocess.call(["sudo", "rm", "-r", "-f", option_dir])
+		print "OK."
+	else:
+		print colored.red("The directory you entered is invalid or does not exist.")
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Remove directory via MANDY, entry \"deldir\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo rm -rf DIR\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## SHOW PROCESS
+def showProcess():
+	print colored.yellow("\nViewing proccesses currently running: ")
+	print colored.cyan("Output will be OVERWRITTEN to logs/showprovess.txt")
+
+	subprocess.call(["ps", "aux"])
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Show system processes via MANDY, entry \"process\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: ps aux\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## SHOW SERVICES
+def showServices():
+	print colored.yellow("\nListing services currently running: ")
+	os.system("sudo service --status-all")
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Show services via MANDY, entry \"services\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo service --status-all\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## SHOW SHELLS
+def showShells():
+	print colored.yellow("\nListing all the shells in the system: ")
+	shell_path = "/etc/shells"
+	if os.path.exists(shell_path):
+		shell_open = open(shell_path)
+	else:
+		print colored.red("/etc/shells file not found")
+
+	print shell_open.read()
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Show services via MANDY, entry \"service\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo service --status-all\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+	
 # YOLO
 

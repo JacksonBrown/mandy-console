@@ -199,6 +199,36 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF CRON
+		elif x == 'cron':
+			showCron()
+			from prompt import *
+			promptTwo()
+
+		## ELIF DELDIR
+		elif x == 'deldir':
+			dirDelete()
+			from prompt import *
+			promptTwo()
+
+		## ELIF PROCESS
+		elif x == 'process':
+			showProcess()
+			from prompt import *
+			promptTwo()
+
+		## ELIF SHELLS
+		elif x == 'shells':
+			showShells()
+			from prompt import *
+			promptTwo()
+
+		## ELIF SERVICE
+		elif x == 'services':
+			showServices()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x
