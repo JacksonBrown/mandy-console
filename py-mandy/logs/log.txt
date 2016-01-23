@@ -1,6 +1,1 @@
 
-
-Sat Jan 23 13:02:08 CST 2016
-List all commands in MANDY, entry help.
-Commands Executed: none
-
