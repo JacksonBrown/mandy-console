@@ -192,6 +192,13 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF EDIT SUDO REMOVE
+		elif x == 'editsudoremove':
+			promptSudoGroupRemove()
+			conditionalTestSudoGroup()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

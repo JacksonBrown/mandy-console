@@ -1027,6 +1027,47 @@ def conditionalTestPass():
 ########################################################
 
 
-		
+## EDIT SUDO REMOVE
+def promptSudoGroupRemove():
+	print colored.yellow("Enter users for sudo group remove (five entries total, type \"done\" if an entry is blank): ")
+
+def conditionalTestSudoGroup():
+	option_one_sudoers = raw_input()
+	option_two_sudoers = raw_input()
+	option_three_sudoers = raw_input()
+	option_four_sudoers = raw_input()
+	option_five_sudoers = raw_input()
+
+	if option_one_sudoers == 'done' or option_one_sudoers == '':
+		print colored.red("0: option skipped")
+	else:
+		print colored.yellow("removing " + option_one_sudoers + " from sudo group: " )
+		subprocess.call(["sudo", "deluser", option_one_sudoers, "sudo"])
+
+	if option_two_sudoers == 'done' or option_two_sudoers == '':
+		print colored.red("1: option skipped")
+	else:
+		print colored.yellow("removing " + option_two_sudoers + " from sudo group: " )
+		subprocess.call(["sudo", "deluser", option_two_sudoers, "sudo"])
+
+	if option_three_sudoers == 'done' or option_three_sudoers == '':
+		print colored.red("2: option skipped")
+	else:
+		print colored.yellow("removing " + option_three_sudoers + " from sudo group: " )
+		subprocess.call(["sudo", "deluser", option_three_sudoers, "sudo"])
+
+	if option_four_sudoers == 'done' or option_four_sudoers == '':
+		print colored.red("3: option skipped")
+	else:
+		print colored.yellow("removing " + option_four_sudoers + " from sudo group: " )
+		subprocess.call(["sudo", "deluser", option_four_sudoers, "sudo"])
+
+	if option_five_sudoers == 'done' or option_five_sudoers == '':
+		print colored.red("4: option skipped")
+	else:
+		print colored.yellow("removing " + option_five_sudoers + " from sudo group: " )
+		subprocess.call(["sudo", "deluser", option_five_sudoers, "sudo"])
+
+
 # YOLO
 
