@@ -229,6 +229,30 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF RMREADABLEHOME
+		elif x == 'removereadablehome':
+			rmReadableHomeDir()
+			from prompt import *
+			promptTwo()
+
+		## ELIF DUMPTCP
+		elif x =='dumptcp':
+			tcpCapture()
+			from prompt import *
+			promptTwo()
+
+		## ELIF HOWDOI
+		elif x == 'howdoi':
+			howdoi()
+			from prompt import *
+			promptTwo()
+
+		## ELIF OPENPAM
+		elif x == 'openpam':
+			openPam()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x

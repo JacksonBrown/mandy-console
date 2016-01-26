@@ -66,6 +66,11 @@ def showHelp():
 	print colored.cyan("editlightdm") + ": edit lightdm configuration file " #
 	print colored.cyan("removereadablehome") + ": remove world readable perms on home dir files "
 	print colored.cyan("scan") + ": runs a scan on an input network "
+	print colored.cyan("dumptcp") + ": view tcp packets in new window "
+	print colored.cyan("howdoi") + ": opens google in firefox web browser "
+	print colored.cyan("openpam") + ": views the chosen pam file "
+	print colored.cyan("softwarescan") + ": scans for malicious software "
+	print colored.cyan("replacepam") + ": replaces pam files "
 	print colored.cyan("prompt") + ": displays the prompt at load up "
 	print
 	
@@ -1175,5 +1180,128 @@ def showShells():
 	os.system("echo \"Commands Executed: sudo service --status-all\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 	
+
+########################################################
+
+
+## REMOVE READABLE HOME DIRECTORIES
+def rmReadableHomeDir():
+	print colored.yellow("\nEnter users to remove world readable permissions (five entries total, type \"done\" for blanke entries): ")
+
+	option_one_readable = raw_input()
+	option_two_readable = raw_input()
+	option_three_readable = raw_input()
+	option_four_readable = raw_input()
+	option_five_readable = raw_input()
+
+
+	if option_one_readable == 'done' or option_one_readable == '':
+		print colored.red("0: option skipped.")
+	else:
+		os.system("sudo chmod 0750 /home/" + option_one_readable)
+		print "Other permissions changed."
+
+	if option_two_readable == 'done' or option_two_readable == '':
+		print colored.red("1: option skipped.")
+	else:
+		os.system("sudo chmod 0750 /home/" + option_two_readable)
+		print "Other permissions changed."
+
+	if option_three_readable == 'done' or option_three_readable == '':
+		print colored.red("2: option skipped.")
+	else:
+		os.system("sudo chmod 0750 /home/" + option_three_readable)
+		print "Other permissions changed."
+
+	if option_four_readable == 'done' or option_four_readable == '':
+		print colored.red("3: option skipped.")
+	else:
+		os.system("sudo chmod 0750 /home/" + option_four_readable)
+		print "Other permissions changed."
+
+	if option_five_readable == 'done' or option_five_readable == '':
+		print colored.red("4: option skipped.")
+	else:
+		os.system("sudo chmod 0750 /home/" + option_five_readable)
+		print "Other permissions changed."
+
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Remove world perms via MANDY, entry \"removereadablehome\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo chmod 0750 /home/USERVAR\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## TCP CAPTURE
+def tcpCapture():
+	print colored.yellow("\nCapturing tcp output in xterm window. Enter interface to scan: ")
+	tcp_dump_option = raw_input()
+
+
+	os.system("sudo tcpdump -i " + tcp_dump_option)
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"View TCP via MANDY, entry \"dumptcp\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo xterm HOLD OPT DUMP OPT\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## HOW DO I
+def howdoi():
+	print colored.yellow("\nOpening google in web browser.")
+
+	subprocess.call(["firefox", "www.google.com"])
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Open google via MANDY, entry \"howdoi\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: firefox www.google.com\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## OPEN PAM
+def openPam():
+	print colored.yellow("\nOpening input pam file: \n1=common-auth, \n2=common-password, \n3=common-account, \nother=enter specific pam file")
+
+	option_pam = raw_input()
+
+	if option_pam == "1":
+		subprocess.call(["gedit", "/etc/pam.d/common-auth"])
+	elif option_pam == "2":
+		subprocess.call(["gedit", "/etc/pam.d/common-password"])
+	elif option_pam == "3":
+		subprocess.call(["gedit", "/etc/pam.d/common-account"])
+	elif option_pam == "other":
+		print colored.yellow("Enter the specified pam file: ")
+		pam_spec_option = raw_input()
+		os.system("gedit /etc/pam.d/" + pam_spec_option)
+	else:
+		print colored.red("Invalid input.")
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Open pam files via MANDY, entry \"openpam\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: gedit PAM OPT\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
 # YOLO
 
