@@ -19,9 +19,20 @@ For Mason, our dearest love, and dank meme expert.
 The Mandy Console is an all purpose console made as a control panel and productivity enhancer for the Linux command line. The Mandy Console comes with a growing variety of options (which can be viewed with “help”). All of the options so far have been programmed to further enhance the productivity of the Linux Administrator. Every option within the Mandy Console will be useful in Linux System Administration.
 
 
+# Install
+1.) Download
+
+2.) `sudo apt-get install python-pip`
+
+3.) `sudo pip install clint`
+
 #Usage
 
+BASH VERSION:
 `sudo bash mconsole.sh` OR `sudo bash /path/to/mconsole.sh`
+
+PYTHON VERSION:
+`sudo python MandyMain.py` OR `sudo python /path/to/MandyMain.py`
 
 #Help Display
 

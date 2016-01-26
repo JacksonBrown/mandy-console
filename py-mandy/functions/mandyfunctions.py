@@ -1310,42 +1310,58 @@ def softwareScan():
 	print colored.yellow("\nScanning for: \nhydra \njtr \nnmap \nwireshark \naircrack \nsqlmap \nmetasploit \nnetcat \n")
 
 	print colored.yellow("Hydra: ")
+	print "DPKG OUTPUT: "
 	os.system("dpkg -l | grep \"hydra\"")
+	print "LOCATE OUTPUT: "
 	os.system("locate hydra | head -n 5")
 	print "\n--------\n"
 
 	print colored.yellow("John The Ripper: ")
+	print "DPKG OUTPUT: "
 	os.system("dpkg -l | grep \"john\"")
+	print "LOCATE OUTPUT: "
 	os.system("locate john | head -n 5")
 	print "\n--------\n"
 
 	print colored.yellow("Nmap: ")
+	print "DPKG OUTPUT: "
 	os.system("dpkg -l | grep \"nmap\"")
+	print "LOCATE OUTPUT: "
 	os.system("locate nmap | head -n 5")
 	print "\n--------\n"
 
 	print colored.yellow("Wireshark: ")
+	print "DPKG OUTPUT: "
 	os.system("dpkg -l | grep \"wireshark\"")
+	print "LOCATE OUTPUT: "
 	os.system("locate wireshark | head -n 5")
 	print "\n--------\n"
 
 	print colored.yellow("Aircrack: ")
+	print "DPKG OUTPUT: "
 	os.system("dpkg -l | grep \"aircrack\"")
+	print "LOCATE OUTPUT: "
 	os.system("locate aircrack | head -n 5")
 	print "\n--------\n"
 
 	print colored.yellow("Sqlmap: ")
+	print "DPKG OUTPUT: "
 	os.system("dpkg -l | grep \"sqlmap\"")
+	print "LOCATE OUTPUT: "
 	os.system("locate sqlmap | head -n 5")
 	print "\n--------\n"
 
 	print colored.yellow("Metasploit: ")
+	print "DPKG OUTPUT: "
 	os.system("dpkg -l | grep \"metasploit\"")
+	print "LOCATE OUTPUT: "
 	os.system("locate metasploit | head -n 5")
 	print "\n--------\n"
 
 	print colored.yellow("Netcat: ")
+	print "DPKG OUTPUT: "
 	os.system("dpkg -l | grep \"netcat\"")
+	print "LOCATE OUTPUT: "
 	os.system("locate netcat | head -n 5")
 	os.system("ls /bin/nc")
 	print "\n--------\n"
