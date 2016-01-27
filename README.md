@@ -5,9 +5,13 @@ For Mason, our dearest love, and dank meme expert.
 
 
 # Currently In Development
-*compatibility for Red Hat Systems*
+*compatibility for Red Hat, SUSE, and other Systems*
+
 *Clean up the bash version's code and output*
+
 *Add more usable options*
+
+*Create user interface mode*
 
 
 #Description
