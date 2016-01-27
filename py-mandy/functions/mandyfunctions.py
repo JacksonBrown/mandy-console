@@ -65,13 +65,11 @@ def showHelp():
 	print colored.cyan("editssh") + ": edit the sshd_config file " #
 	print colored.cyan("editlightdm") + ": edit lightdm configuration file " #
 	print colored.cyan("removereadablehome") + ": remove world readable perms on home dir files "
-	print colored.cyan("scan") + ": runs a scan on an input network "
-	print colored.cyan("dumptcp") + ": view tcp packets in new window "
-	print colored.cyan("howdoi") + ": opens google in firefox web browser "
-	print colored.cyan("openpam") + ": views the chosen pam file "
-	print colored.cyan("softwarescan") + ": scans for malicious software "
-	print colored.cyan("replacepam") + ": replaces pam files "
-	print colored.cyan("prompt") + ": displays the prompt at load up "
+	print colored.cyan("dumptcp") + ": view tcp packets in new window " #
+	print colored.cyan("howdoi") + ": opens google in firefox web browser " #
+	print colored.cyan("openpam") + ": views the chosen pam file " #
+	print colored.cyan("softwarescan") + ": scans for malicious software " #
+	print colored.cyan("prompt") + ": displays the prompt at load up " #
 	print
 	
 	##LOG UPDATER
@@ -96,36 +94,36 @@ def deleteUser():
 	option_five_del = raw_input()
 
 	# CONDITIONAL FOR OPTION VARS
-	if option_one_del == 'done':
-		print "0: option one not set, skipping.";
+	if option_one_del == 'done' or option_one_del == '':
+		print colored.red("0: option skipped.");
 	else:
 		print colored.yellow('removing user ' + '"' + option_one_del + '":')
 		os.system("sudo userdel " + option_one_del)
 		print "OK."
 
-	if option_two_del == 'done':
-		print "0: option one not set, skipping.";
+	if option_two_del == 'done' or option_two_del == '':
+		print colored.red("1: option skipped.");
 	else:
 		print colored.yellow('removing user ' + '"' + option_two_del + '":')
 		os.system("sudo userdel " + option_two_del)
 		print "OK."
 
-	if option_three_del == 'done':
-		print "0: option one not set, skipping.";
+	if option_three_del == 'done' or option_three_del == '':
+		print colored.red("2: option skipped.");
 	else:
 		print colored.yellow('removing user ' + '"' + option_three_del + '":')
 		os.system("sudo userdel " + option_three_del)
 		print "OK."
 
-	if option_four_del == 'done':
-		print "0: option one not set, skipping.";
+	if option_four_del == 'done' or option_four_del == '':
+		print colored.red("3: option skipped.");
 	else:
 		print colored.yellow('removing user ' + '"' + option_four_del + '":')
 		os.system("sudo userdel " + option_four_del)
 		print "OK."
 
-	if option_five_del == 'done':
-		print "0: option one not set, skipping.";
+	if option_five_del == 'done' or option_five_del == '':
+		print colored.red("4: option skipped.");
 	else:
 		print colored.yellow('removing user ' + '"' + option_five_del + '":')
 		os.system("sudo userdel " + option_five_del)
@@ -903,36 +901,36 @@ def removeAge():
 	option_five_age = raw_input()
 
 	# CONDITIONAL FOR OPTION VARS
-	if option_one_age == 'done':
-		print "0: option one not set, skipping.";
+	if option_one_age == 'done' or option_one_age == '':
+		print colored.red("0: option skipped.");
 	else:
 		print colored.yellow('removing user age ' + '"' + option_one_age + '":')
 		os.system("sudo chage -M 30 " + option_one_age)
 		print "OK."
 
-	if option_two_age == 'done':
-		print "0: option one not set, skipping.";
+	if option_two_age == 'done' or option_two_age == '':
+		print colored.red("1: option skipped.");
 	else:
 		print colored.yellow('removing user age ' + '"' + option_two_age + '":')
 		os.system("sudo chage -M 30 " + option_two_age)
 		print "OK."
 
-	if option_three_age == 'done':
-		print "0: option one not set, skipping.";
+	if option_three_age == 'done' or option_three_age == '':
+		print colored.red("2: option skipped.");
 	else:
 		print colored.yellow('removing user age ' + '"' + option_three_age + '":')
 		os.system("sudo chage -M 30 " + option_three_age)
 		print "OK."
 
-	if option_four_age == 'done':
-		print "0: option one not set, skipping.";
+	if option_four_age == 'done' or option_four_age == '':
+		print colored.red("3: option skipped.");
 	else:
 		print colored.yellow('removing user age ' + '"' + option_four_age + '":')
 		os.system("sudo chage -M 30 " + option_four_age)
 		print "OK."
 
-	if option_five_age == 'done':
-		print "0: option one not set, skipping.";
+	if option_five_age == 'done' or option_five_age == '':
+		print colored.red("4: option skipped.");
 	else:
 		print colored.yellow('removing user age ' + '"' + option_five_age + '":')
 		os.system("sudo chage -M 30 " + option_five_age)
@@ -1302,6 +1300,68 @@ def openPam():
 	os.system("echo \"Open pam files via MANDY, entry \"openpam\".\" >> logs/log.txt")
 	os.system("echo \"Commands Executed: gedit PAM OPT\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## SOFTWARE SCAN
+def softwareScan():
+	print colored.yellow("\nScanning for: \nhydra \njtr \nnmap \nwireshark \naircrack \nsqlmap \nmetasploit \nnetcat \n")
+
+	print colored.yellow("Hydra: ")
+	os.system("dpkg -l | grep \"hydra\"")
+	os.system("locate hydra | head -n 5")
+	print "\n--------\n"
+
+	print colored.yellow("John The Ripper: ")
+	os.system("dpkg -l | grep \"john\"")
+	os.system("locate john | head -n 5")
+	print "\n--------\n"
+
+	print colored.yellow("Nmap: ")
+	os.system("dpkg -l | grep \"nmap\"")
+	os.system("locate nmap | head -n 5")
+	print "\n--------\n"
+
+	print colored.yellow("Wireshark: ")
+	os.system("dpkg -l | grep \"wireshark\"")
+	os.system("locate wireshark | head -n 5")
+	print "\n--------\n"
+
+	print colored.yellow("Aircrack: ")
+	os.system("dpkg -l | grep \"aircrack\"")
+	os.system("locate aircrack | head -n 5")
+	print "\n--------\n"
+
+	print colored.yellow("Sqlmap: ")
+	os.system("dpkg -l | grep \"sqlmap\"")
+	os.system("locate sqlmap | head -n 5")
+	print "\n--------\n"
+
+	print colored.yellow("Metasploit: ")
+	os.system("dpkg -l | grep \"metasploit\"")
+	os.system("locate metasploit | head -n 5")
+	print "\n--------\n"
+
+	print colored.yellow("Netcat: ")
+	os.system("dpkg -l | grep \"netcat\"")
+	os.system("locate netcat | head -n 5")
+	os.system("ls /bin/nc")
+	print "\n--------\n"
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Software scan via MANDY, entry \"softwarescan\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: locate, dpkg -l, grep\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## REPLACE PAM
 
 # YOLO
 

@@ -253,6 +253,12 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF SOFTWARESCAN
+		elif x == 'softwarescan':
+			softwareScan()
+			from prompt import *
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x
