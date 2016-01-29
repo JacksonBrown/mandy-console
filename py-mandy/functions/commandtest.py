@@ -259,6 +259,12 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF REDVERSION
+		elif x == 'red':
+			from prompt import *
+			redPrompt()
+			promptTwo()
+
 		## ELSE
 		else:
 			print "You're a " + x
