@@ -70,6 +70,7 @@ def showHelp():
 	print colored.cyan("openpam") + ": views the chosen pam file " #
 	print colored.cyan("softwarescan") + ": scans for malicious software " #
 	print colored.cyan("prompt") + ": displays the prompt at load up " #
+	print colored.cyan("createuser") + ": creates specified 5 users " #
 	print
 	
 	##LOG UPDATER
@@ -129,6 +130,46 @@ def deleteUser():
 		os.system("sudo userdel " + option_five_del)
 		print "OK."
 	print
+
+
+	print colored.yellow("Delete home directories (y/n)? ")
+	option_homedir_del = raw_input()
+
+	if option_homedir_del == 'y':
+
+		if option_one_del != 'done':
+			os.system("sudo rm -rf /home/" + option_one_del)
+			print option_one_del + " home directory removed."
+		else:
+			print colored.red("0: option skipped.");
+
+		if option_two_del != 'done':
+			os.system("sudo rm -rf /home/" + option_two_del)
+			print option_two_del + " home directory removed."
+		else:
+			print colored.red("1: option skipped.");
+
+		if option_three_del != 'done':
+			os.system("sudo rm -rf /home/" + option_three_del)
+			print option_three_del + " home directory removed."
+		else:
+			print colored.red("2: option skipped.");
+
+		if option_four_del != 'done':
+			os.system("sudo rm -rf /home/" + option_four_del)
+			print option_four_del + " home directory removed."
+		else:
+			print colored.red("3: option skipped.");
+
+		if option_five_del != 'done':
+			os.system("sudo rm -rf /home/" + option_five_del)
+			print option_five_del + " home directory removed."
+		else:
+			print colored.red("4: option skipped.");
+
+	else:
+		print colored.red("option other than y specified, closing.")
+
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
@@ -1376,6 +1417,55 @@ def softwareScan():
 
 ########################################################
 
+
+## CREATE USER
+def createUser():
+	print colored.yellow("\nEnter users to be created (five entries total, type \"done\" if an entry is blank): ")
+	option_one_create = raw_input()
+	option_two_create = raw_input()
+	option_three_create = raw_input()
+	option_four_create = raw_input()
+	option_five_create = raw_input()
+
+
+	if option_one_create == 'done' or option_one_create == '':
+		print colored.red("0: option skipped.");
+	else:
+		os.system("sudo adduser " + option_one_create)
+		print "User created."
+
+	if option_two_create == 'done' or option_two_create == '':
+		print colored.red("1: option skipped.");
+	else:
+		os.system("sudo adduser " + option_two_create)
+		print "User created."
+
+	if option_three_create == 'done' or option_three_create == '':
+		print colored.red("2: option skipped.");
+	else:
+		os.system("sudo adduser " + option_three_create)
+		print "User created."
+		
+	if option_four_create == 'done' or option_four_create == '':
+		print colored.red("3: option skipped.");
+	else:
+		os.system("sudo adduser " + option_four_create)
+		print "User created."
+		
+	if option_five_create == 'done' or option_five_create == '':
+		print colored.red("4: option skipped.");
+	else:
+		os.system("sudo adduser " + option_five_create)
+		print "User created."
+		
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Add users via MANDY, entry \"createuser\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo adduser VAR\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+		
 
 # YOLO
 

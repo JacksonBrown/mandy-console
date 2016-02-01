@@ -259,11 +259,27 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF CREATEUSER
+		elif x == 'createuser':
+			createUser()
+			from prompt import *
+			promptTwo()
+
 		## ELIF REDVERSION
 		elif x == 'red':
 			from prompt import *
 			redPrompt()
 			promptTwo()
+
+		## ELIF MANDYHISTORY
+		elif x == 'mandyhistroy':
+			history_var_path = "../logs/log.txt"
+
+			if os.path.exists(history_var_path):
+				history_var = open(history_var_path)
+				print history_var.read()
+			else:
+				print "history_var_path variable is invalid."
 
 		## ELSE
 		else:
