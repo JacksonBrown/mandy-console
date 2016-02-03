@@ -3,6 +3,9 @@
 Nothing special.
 For Mason, our dearest love, and dank meme expert.
 
+NOTE:
+Bash version is being halted.
+
 
 # Currently In Development
 *compatibility for Red Hat, SUSE, and other Systems*

@@ -265,6 +265,18 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF EDITSYSCTL
+		elif x == 'editsysctl':
+			editSysctl()
+			from prompt import *
+			promptTwo()
+
+		## ELIF FINDTIMESTAMP
+		elif x == 'findtimestamp':
+			findTimestamp()
+			from prompt import *
+			promptTwo()
+
 		## ELIF REDVERSION
 		elif x == 'red':
 			from prompt import *

@@ -71,6 +71,8 @@ def showHelp():
 	print colored.cyan("softwarescan") + ": scans for malicious software " #
 	print colored.cyan("prompt") + ": displays the prompt at load up " #
 	print colored.cyan("createuser") + ": creates specified 5 users " #
+	print colored.cyan("editsysctl") + ": edits the sysctl.conf file if found. " #
+	print colored.cyan("findtimestamp") + ": finds files edited within the last hour. " #
 	print
 	
 	##LOG UPDATER
@@ -1466,6 +1468,52 @@ def createUser():
 	os.system("echo \"Commands Executed: sudo adduser VAR\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 		
+
+########################################################
+
+
+## EDIT SYSCTL
+def editSysctl():
+	print colored.yellow("\nOpening sysctl for editing in vi: ")
+
+	sysctl_path = "/etc/sysctl.conf"
+
+	if os.path.exists(sysctl_path):
+		subprocess.call(["sudo", "vi", sysctl_path])
+	else:
+		print colored.red("sysctl.conf file not found.")
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Edit sysctl.conf via MANDY, entry \"editsysctl\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo vi sysctl_path\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## FIND TIMESTAMP
+def findTimestamp():
+	print colored.yellow("\nEnter directory: ")
+	find_directory = raw_input()
+
+	if os.path.exists(find_directory):
+		print colored.yellow("Listing files edited within the last hour in the " + find_directory + " directory.")
+		os.system("sudo find " + find_directory + " -type f -mmin -60 | xargs ls -l")
+	else:
+		print colored.red("The directory you entered is invalid or does not exist.")
+	print
+	
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Find edited files within last hour via MANDY, entry \"findtimestamp\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo find DIRVAR -type f -mmin 60 | xargs ls -l\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
 
 # YOLO
 
