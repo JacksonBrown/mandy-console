@@ -73,6 +73,7 @@ def showHelp():
 	print colored.cyan("createuser") + ": creates specified 5 users " #
 	print colored.cyan("editsysctl") + ": edits the sysctl.conf file if found. " #
 	print colored.cyan("findtimestamp") + ": finds files edited within the last hour. " #
+	print colored.cyan("changehostname") + ": changes the hostname in /etc/hostname. " #
 	print
 	
 	##LOG UPDATER
@@ -676,7 +677,7 @@ def showBin():
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
 	os.system("echo \"Show bin and sbin dir via MANDY, entry \"bin\".\" >> logs/log.txt")
-	os.system("echo \"Commands Executed: cat /etc/network/interfaces\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: ls /bin; ls /sbin\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 	
 
@@ -1217,8 +1218,8 @@ def showShells():
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
-	os.system("echo \"Show services via MANDY, entry \"service\".\" >> logs/log.txt")
-	os.system("echo \"Commands Executed: sudo service --status-all\" >> logs/log.txt")
+	os.system("echo \"Show services via MANDY, entry \"shells\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: none\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 	
 
@@ -1480,6 +1481,7 @@ def editSysctl():
 
 	if os.path.exists(sysctl_path):
 		subprocess.call(["sudo", "vi", sysctl_path])
+		print "OK."
 	else:
 		print colored.red("sysctl.conf file not found.")
 	print
@@ -1515,5 +1517,34 @@ def findTimestamp():
 	os.system("echo >> logs/log.txt")
 
 
-# YOLO
+########################################################
+
+ 
+## CHANGE HOSTNAME
+def changeHostName():
+	print colored.yellow("\nEnter new hostname to be in /etc/hostname: ")
+	hostname_var = raw_input()
+
+	hostname_path = "/etc/hostname"
+	if os.path.exists(hostname_path):
+		print colored.yellow("Changing the /etc/hostname value to " + hostname_var)
+		os.system("sudo echo > " + hostname_path)
+		os.system("sudo echo \"" + hostname_var + "\" > " + hostname_path)
+		print "OK."
+	else:
+		print colored.red("hostname file not found.")
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Change hostname via MANDY, entry \"changehostname\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo echo > HOSTNAME_PATH, none\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+
+########################################################
+
+
+## YOLO
 

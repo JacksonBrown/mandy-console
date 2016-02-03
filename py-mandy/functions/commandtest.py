@@ -277,6 +277,12 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
+		## ELIF CHANGEHOSTNAME
+		elif x == 'changehostname':
+			changeHostName()
+			from prompt import *
+			promptTwo()
+
 		## ELIF REDVERSION
 		elif x == 'red':
 			from prompt import *
