@@ -297,11 +297,13 @@ def commandTest(x):
 				history_var = open(history_var_path)
 				print history_var.read()
 			else:
-				print "history_var_path variable is invalid."
-
+				print colored.red("history_var_path variable is invalid.")
+			
 		## ELSE
 		else:
-			print "You're a " + x
+			print
+			os.system(x)
+			print
 			from prompt import *
 			promptTwo()
 
