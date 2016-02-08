@@ -61,5 +61,11 @@ def redPrompt():
 
 def promptTwo():
 	com_opt = 0
-	com_opt = raw_input(colored.green(">"))
-	commandTest(com_opt)
+
+	prompt_conf_path =  "prompt"
+	if os.path.exists(prompt_conf_path):
+		prompt_conf_var = open(prompt_conf_path)
+		com_opt = raw_input(colored.green(">"))
+		commandTest(com_opt)
+	else:
+		print "prompt conf not found"
