@@ -513,11 +513,16 @@ def logView():
 		os.system("echo >> logs/log_mesg.txt")
 
 	elif log_view_option == 'other':
-		print colored.red("enter log file name (not path): ")
+		print colored.yellow("enter log file name (not path): ")
 		log_view_else = raw_input()
 
 		lvp = "/var/log/" + log_view_else
-		print lve.read()
+		if os.path.exists(lvp):
+			lve = open(lvp)	
+			print lve.read()
+		else:
+			print colored.red("specified log file not found.")
+
 	else:
 		print colored.red("Option not found.")
 
@@ -526,7 +531,7 @@ def logView():
 	log_view_option_two = raw_input()
 
 	if log_view_option_two == 'y':
-		os.system("gedit logs/log_mesg.txt")
+		os.system("less logs/log_mesg.txt")
 	else:
 		print colored.red("option other than y specified, closing.")
 
@@ -919,15 +924,16 @@ def updateOs():
 ## SHOW DISK SPACE
 def showSpace():
 	print
-	print colored.yellow("Listing free disk space: ")
-	subprocess.call(["df", "-h"])
+	print colored.yellow("Listing free disk space and sectors: ")
+	subprocess.call(["df", "-ah"])
+	subprocess.call(["fdisk", "-c=dos", "-u=sectors", "-l"])
 	print
 
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
 	os.system("echo \"Listed free disk space via MANDY, entry \"space\".\" >> logs/log.txt")
-	os.system("echo \"Commands Executed: df -h\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: df -ah\" >> logs/log.txt")
 	os.system("echo >> logs/log.txt")
 
 
