@@ -699,15 +699,22 @@ def showRepositories():
 		sources_open = open(sources_list)
 		print sources_open.read()
 	else:
-		print colored.red(source_list + " not found.")
+		print colored.red("sources.list not found.")
 
 	sources_oprl = "/etc/apt/sources.list.d/official-package-repositories.list"
 	if os.path.exists(sources_oprl):
 		sources_oprl_open = open(sources_oprl)
 		print sources_oprl_open.read()
 	else:
-		print colored.red(sources_oprl + " not found.")
-	 
+		print colored.red("official-package-repositiories.list not found.")
+
+	sources_fedora = "/etc/yum.repos.d/fedora.repo"
+	if os.path.exists(sources_fedora):
+		sources_fedora_open = open(sources_fedora)
+		print colored.yellow("Displaying contents of fedora.repo: ")
+		print sources_fedora_open.read()
+	else:
+		print colored.red("fedora.repo not found.")
 	print
 
 	##LOG UPDATER
