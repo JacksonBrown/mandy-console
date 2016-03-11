@@ -1,6 +1,0 @@
-
-
-Sat Feb 27 11:50:06 CST 2016
-Show bin and sbin dir via MANDY, entry repo.
-Commands Executed: cat /etc/network/interfaces
-

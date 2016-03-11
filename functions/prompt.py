@@ -65,7 +65,7 @@ def promptTwo():
 	prompt_conf_path =  "prompt"
 	if os.path.exists(prompt_conf_path):
 		prompt_conf_var = open(prompt_conf_path)
-		com_opt = raw_input(colored.green(">"))
+		com_opt = raw_input(prompt_conf_var.read())
 		commandTest(com_opt)
 	else:
 		print "prompt conf not found"
