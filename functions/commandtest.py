@@ -13,7 +13,7 @@ def commandTest(x):
 	while x != 'exit':
 
 		## IF HELP
-		if x == 'help':
+		if x == 'help' or x == '?' or x == 'h':
 			showHelp()
 			from prompt import *
 			promptTwo()
@@ -283,10 +283,10 @@ def commandTest(x):
 			from prompt import *
 			promptTwo()
 
-		## ELIF REDVERSION
-		elif x == 'red':
+		## ELIF X CONFIG
+		elif x == 'xconfig':
+			editXConfig()
 			from prompt import *
-			redPrompt()
 			promptTwo()
 
 		## ELIF MANDYHISTORY

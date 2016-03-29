@@ -74,6 +74,7 @@ def showHelp():
 	print colored.cyan("editsysctl") + ": edits the sysctl.conf file if found. " #
 	print colored.cyan("findtimestamp") + ": finds files edited within the last hour. " #
 	print colored.cyan("changehostname") + ": changes the hostname in /etc/hostname. " #
+	print colored.cyan("xconfig") + ": edit or generate the X configuration file. " #
 	print
 	
 	##LOG UPDATER
@@ -1148,6 +1149,20 @@ def showCron():
 	os.system("ls -l /etc/cron.*")
 	print
 
+	print colored.yellow("View crontab file (y/n)?")
+	view_cron_cond = raw_input()
+
+	if view_cron_cond == 'y':
+		crontab_path = "/etc/crontab"
+		crontab_path_open = open(crontab_path)
+
+		if os.path.exists(crontab_path):
+			print crontab_path_open.read()
+		else:
+			print colored.red("/etc/crontab not found")
+	else:
+		print colored.red("option other than y specified.")
+
 	##LOG UPDATER
 	os.system("echo >> logs/log.txt")
 	os.system("echo `date` >> logs/log.txt")
@@ -1544,6 +1559,15 @@ def changeHostName():
 		os.system("sudo echo > " + hostname_path)
 		os.system("sudo echo \"" + hostname_var + "\" > " + hostname_path)
 		print "OK."
+
+		hosts_path = "/etc/hosts"
+		print colored.yellow("Opening the /etc/hosts file for editing.")
+
+		if os.path.exists(hosts_path):
+			os.system("sudo vim " + hosts_path)
+		else:
+			print colored.red("hosts file not found.")
+
 	else:
 		print colored.red("hostname file not found.")
 	print
@@ -1559,5 +1583,39 @@ def changeHostName():
 ########################################################
 
 
-## YOLO
+## EDIT X CONFIG
+def editXConfig():
+	print colored.yellow("\nAttempting to edit the /etc/X11/xorg.conf.")
 
+	xorg_path = "/etc/X11/xorg.conf"
+	if os.path.exists(xorg_path):
+		os.system("sudo vim " + xorg_path)
+	else:
+		xorg_new_path = "/root/xorg.conf.new"
+		if os.path.exists(xorg_new_path):
+			print colored.red("xorg.conf not found, however, xorg.conf.new exists. Would you like to open it for editing (y/n)?")
+			xorg_new_opt = raw_input()
+
+			if xorg_new_opt == 'y':
+				os.system("sudo vim " + xorg_new_path)
+			else:
+				print colored.red("Option other than \"y\" specified.")
+		else:
+			print colored.red("neither " + xorg_path + " or " + xorg_new_path + " exist, would you like to generate xorg.conf.new (y/n)?")
+			xorg_gen_opt = raw_input()
+
+			if xorg_gen_opt == 'y':
+				os.system("sudo Xorg :1 -configure")
+			else:
+				print colored.red("Option other than \"y\" specified.")
+	print
+
+	##LOG UPDATER
+	os.system("echo >> logs/log.txt")
+	os.system("echo `date` >> logs/log.txt")
+	os.system("echo \"Configure X via MANDY, entry \"xconfig\".\" >> logs/log.txt")
+	os.system("echo \"Commands Executed: sudo vim xorg.conf(.new), Xorg :1 -confugre\" >> logs/log.txt")
+	os.system("echo >> logs/log.txt")
+
+# IS ANYONE THERE?
+# OH, HI :)
